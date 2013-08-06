@@ -1,0 +1,21 @@
+header {
+	text-align: center;
+	margin: 30px auto;
+}
+#header_logo {
+	margin-bottom: 10px;
+}
+header nav ul li {
+	display: inline-block;
+}
+header nav ul li a {
+	display: inline-block;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	text-decoration: none;
+	text-transform: uppercase;
+	margin: 0 5px;
+}
+header nav ul li a.active {
+	color: red;
+}

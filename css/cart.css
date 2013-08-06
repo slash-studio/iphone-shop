@@ -1,0 +1,37 @@
+#cart {
+	margin: 20px auto 0;
+	text-align: center;
+}
+#cart table {
+	margin: 0 auto;
+	text-align: center;
+	border-collapse: collapse;
+	font-family: Helvetica, Arial, sans-serif;
+	width: 700px;
+}
+#cart table td {
+	text-align: left;
+	padding: 10px;
+	vertical-align: middle;
+	border: 1px #ddd solid;
+	border-left: 0;
+	border-right: 0;
+}
+#cart table td a {
+	text-decoration: none;
+}
+#cart table td.image img {
+	margin: 5px;
+	width: 50px;
+}
+#cart table tr.head td {
+	margin-bottom: 10px;
+}
+#cart table tr td.quantity input {
+	width: 30px;
+	border: 1px black solid;
+	padding: 3px;
+}
+#checkout, #clear {
+	margin-top: 30px;
+}

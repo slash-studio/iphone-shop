@@ -1,0 +1,48 @@
+#card {
+	display: inline-block;
+	margin: 20px auto 0;
+	text-align: left;
+}
+#card div.left {
+	float: left;
+	margin-right: 50px;
+}
+#card div.left a.more {
+	text-decoration: none;
+	display: block;
+	text-align: left;
+	font-size: 250%;
+	margin-bottom: 70px;
+}
+#card div.left img.main_img {
+	display: block;
+	width: 400px;
+	margin-bottom: 10px;
+}
+#card div.right {
+	font-family: Helvetica, Arial, sans-serif;
+	margin-left: 420px;
+	min-width: 250px;
+}
+#card div.right h1 {
+	font-size: 120%;
+	margin-bottom: 20px;
+}
+#card div.right p.description {
+	margin-bottom: 30px;
+	line-height: 1.5;
+}
+#card div.right select {
+	display: block;
+	margin: 5px 0;
+	border: 1px black solid;
+	padding: 5px;
+}
+#card div.right span.price {
+	font-size: 120%;
+	display: inline-block;
+	margin: 25px 25px 0 0;
+}
+#card a.hidden {
+	display: none;
+}

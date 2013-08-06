@@ -1,0 +1,23 @@
+form div.block {
+	margin-bottom: 10px;
+}
+form div.inline {
+	display: inline-block;
+	margin-right: 10px;
+}
+form div {
+	vertical-align: top;
+}
+form label {
+	display: block;
+	margin: 5px 0;
+}
+form input {
+	display: block;
+}
+form select {
+	display: block;
+}
+body {
+	margin: 20px;
+}

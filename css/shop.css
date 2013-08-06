@@ -1,0 +1,26 @@
+#catalog article.good {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	margin: 20px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 90%;
+}
+#catalog {
+	margin: 0 auto;
+	display: inline-block;
+}
+#catalog article.good img {
+	margin-bottom: 10px;
+	width: 250px;
+}
+#catalog article.good h1 {
+	font-size: 110%;
+	margin-bottom: 5px;
+}
+#catalog article.good h1 a {
+	text-decoration: none;
+}
+#catalog article.good span.price {
+	font-size: 90%;
+}

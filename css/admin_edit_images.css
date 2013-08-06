@@ -1,0 +1,37 @@
+body {
+	margin: 20px;
+}
+#upload_photo {
+	margin: 25px 0;
+	display: block;
+}
+#photos_div div.in_image img {
+	width: 80px;
+	border: 1px #999 solid;
+	margin-right: 5px;
+	vertical-align: top;
+	margin-bottom: 5px; 
+}
+#photos_div div.in_image {
+	text-align: left;
+	margin: 5px 0;
+	position: relative;
+	display: inline-block;
+}
+#status_photos {
+	font-family:Arial; padding:5px;
+}
+#photos_div div.in_image button {
+	position: absolute;
+	top: 1px;
+	left: 66px;
+	border: 0px;
+	opacity: 0.7;
+	background: red;
+	color: white;
+	font-family: Calibri;
+	width: 15px;
+	height: 15px;
+	padding: 0;
+	cursor: pointer;
+}
