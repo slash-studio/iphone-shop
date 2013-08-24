@@ -1,5 +1,5 @@
 <header>
-	<a href="/"><img id="header_logo" src="/images/header_logo.jpg" /></a>
+	<a href="/"><img id="header_logo" src="/images/logo.jpg" /></a>
 	<nav>
 		<ul>
 			<li><a href="/includes/cart.php" {if $active == 'cart'}class="active"{/if}>Cart</a></li>
