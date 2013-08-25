@@ -1,10 +1,13 @@
 header {
-	text-align: center;
-	margin: 30px auto;
+	padding: 20px;
+	height: 52px;
 }
 #header_logo {
-	margin-bottom: 10px;
-	
+	float: left;
+	margin-right: 30px;
+}
+header nav {
+	vertical-align: top;
 }
 header nav ul li {
 	display: inline-block;
@@ -12,10 +15,9 @@ header nav ul li {
 header nav ul li a {
 	display: inline-block;
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 11px;
+	font-size: 15px;
 	text-decoration: none;
-	text-transform: uppercase;
-	margin: 0 5px;
+	padding: 20px 8px;
 }
 header nav ul li a.active {
 	color: red;

@@ -11,5 +11,5 @@
 	$active = 'shop';
 	$smarty->assign('active', $active);
 	
-	$smarty->display('shop.tpl');
+	$smarty->display('index.tpl');
 ?>
