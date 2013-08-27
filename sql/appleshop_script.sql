@@ -31,16 +31,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 CREATE TABLE category (
-   id    INT NOT NULL AUTO_INCREMENT,
-   name  VARCHAR(40) NOT NULL,
-   PRIMARY KEY(id)
+  id    INT NOT NULL AUTO_INCREMENT,
+  name  VARCHAR(40) NOT NULL,
+  PRIMARY KEY(id)
 );
 
 CREATE TABLE subcategory (
-   id        INT NOT NULL,
-   parent_id INT NOT NULL,
-   FOREIGN KEY(id)        REFERENCES category(id) ON DELETE CASCADE,
-   FOREIGN KEY(parent_id) REFERENCES category(id) ON DELETE CASCADE
+  id        INT NOT NULL,
+  parent_id INT NOT NULL,
+  FOREIGN KEY(id)        REFERENCES category(id) ON DELETE CASCADE,
+  FOREIGN KEY(parent_id) REFERENCES category(id) ON DELETE CASCADE
 );
 
 --
@@ -52,8 +52,9 @@ CREATE TABLE IF NOT EXISTS `goods` (
   `name` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `display` int(1) NOT NULL DEFAULT '1',
-  `price` int(4) NOT NULL DEFAULT '0',
-  `sizes` varchar(10) NOT NULL DEFAULT 'S,M,L,XL',
+  `old_price` varchar(30) NOT NULL,
+  `new_price` varchar(30) NOT NULL,
+  `keywords` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 

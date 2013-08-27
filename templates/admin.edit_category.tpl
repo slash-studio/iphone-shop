@@ -18,6 +18,10 @@
         {$category_tree|default:''}
       </div>
 <div id="edit-box">
+   <input type="radio" id="in_add" name="sumbit_type" value="add" checked>
+   <label for="in_add">Добавление</label>
+   <input type="radio" id="in_change" name="sumbit_type" value="change" disabled>
+   <label for="in_change">Редактирование</label>
   <form method="post" action="/admin/products" class="edit-form">
   <fieldset>
     <legend>Добавление</legend>
@@ -34,8 +38,5 @@
     <!-- <button type="submit" name="submit" value="delete" style="display: none">Удалить</button> -->
   </fieldset>
   </form>
-   <input type="radio" id="in_add" name="sumbit_type" value="add" checked><label for="in_add">Добавление</label>
-   <input type="radio" id="in_change" name="sumbit_type" value="change" disabled>
-   <label for="in_change">Редактирование</label>
  </div>
 {/block}

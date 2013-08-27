@@ -11,31 +11,20 @@
 				<input id="g_name" name="g_name" value="{$good['name']}" />
 			</div>
 			<div class="block">
-				<label for="g_price">Price</label>
-				<input id="g_price" name="g_price" value="{$good['price']}" />
+				<label for="g_old_price">Old price</label>
+				<input id="g_old_price" name="g_old_price" value="{$good['old_price']}" />
 			</div>
 			<div class="block">
-				<label>Sizes</label>
-				<div class="inline">
-					<label for="g_size_s">S</label>
-					<input type="checkbox" name="g_size" id="g_size_s" value="S" {if $good['sizes']['S']}checked="checked"{/if} />
-				</div>
-				<div class="inline">
-					<label for="g_size_m">M</label>
-					<input type="checkbox" name="g_size" id="g_size_m" value="M" {if $good['sizes']['M']}checked="checked"{/if} />
-				</div>
-				<div class="inline">
-					<label for="g_size_l">L</label>
-					<input type="checkbox" name="g_size" id="g_size_l" value="L" {if $good['sizes']['L']}checked="checked"{/if} />
-				</div>
-				<div class="inline">
-					<label for="g_size_xl">XL</label>
-					<input type="checkbox" name="g_size" id="g_size_xl" value="XL" {if $good['sizes']['XL']}checked="checked"{/if} />
-				</div>
+				<label for="g_new_price">New price</label>
+				<input id="g_new_price" name="g_new_price" value="{$good['new_price']}" />
 			</div>
 			<div class="block">
 				<label for="g_description">Description</label>
 				<textarea id="g_description" name="g_description" cols="40" rows="6">{$good['description']}</textarea>
+			</div>
+			<div class="block">
+				<label for="g_keywords">Keywords</label>
+				<textarea id="g_keywords" name="g_keywords" cols="40" rows="6">{$good['keywords']}</textarea>
 			</div>
 			<div class="block">
 				<label for="g_display">Display</label>

@@ -20,12 +20,15 @@
 							Description
 						</td>
 						<td>
-							Price
+							Old price
 						</td>
 						<td>
-							Sizes
+							New price
 						</td>
 						<td>
+							Keywords
+						</td>
+						<td colspan="2">
 							Edit
 						</td>
 						<td>
@@ -46,10 +49,13 @@
 							<a href="/includes/card.php?id={$good['id']}">{$good['name']}</a>
 						</td>
 						<td class="price">
-							{$good['price']}€
+							{$good['old_price']}€
 						</td>
-						<td class="sizes">
-							{$good['sizes']}
+						<td class="price">
+							{$good['new_price']}€
+						</td>
+						<td class="sizes" colspan="2">
+							{$good['keywords']}
 						</td>
 						<td>
 							<a href="/admin/edit_good.php?id={$good['id']}" class="white_button edit">Change</a>

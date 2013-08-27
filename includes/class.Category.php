@@ -5,26 +5,6 @@
 
    class Category
    {
-      public
-         $fieldsHash = [],
-         $fieldsArr  =
-            [
-               [
-                'name'     => 'id',
-                'caption'  => 'Категория',
-                'type'     => 'int',
-                'refKey'   => true,
-                'refTbl'   => 'category',
-                'refField' => 'id',
-                'refName'  => 'name'
-               ],
-               [
-                'name'     => 'parent_id',
-                'caption'  => 'Родительская категория',
-                'type'     => 'int',
-                'refKey'   => false
-               ],
-            ];
 
       function __construct()
       {
@@ -136,7 +116,7 @@
             if (!count($t)) {
                return '';
             }
-            $result = "<ul>\n";
+            $result = "<ul>";
             $isLeaf = false;
             foreach ($t as $k => $sub) {
                $new_node = "<li id='category_$k'><a href='javascript:void(0)' class='parent'>" . $names[$k][0] . "</a>";
@@ -147,9 +127,9 @@
                } else {
                   $result .= $new_node;
                }
-               $result .= "</li>\n";
+               $result .= "</li>";
             }
-            $result .= "</ul>\n";
+            $result .= "</ul>";
             return $result;
          };
          global $smarty;

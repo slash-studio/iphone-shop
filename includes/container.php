@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	@session_start();
 
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/settings.php';
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/smarty/libs/Smarty.class.php';
