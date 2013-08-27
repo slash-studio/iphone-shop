@@ -137,9 +137,16 @@
                return '';
             }
             $result = "<ul>\n";
+            $isLeaf = false;
             foreach ($t as $k => $sub) {
-               $result .= "<li id='category_$k'><a href='javascript:void(0)'>" . $names[$k][0] . "</a>";
-               $result .= $buildTree($sub);
+               $new_node = "<li id='category_$k'><a href='javascript:void(0)' class='parent'>" . $names[$k][0] . "</a>";
+               $next_node = $buildTree($sub);
+               $new_node .= $next_node;
+               if ($next_node == '') {
+                  $result .= "<li id='category_$k'><a href='javascript:void(0)'>" . $names[$k][0] . "</a>";
+               } else {
+                  $result .= $new_node;
+               }
                $result .= "</li>\n";
             }
             $result .= "</ul>\n";

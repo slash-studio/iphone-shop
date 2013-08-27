@@ -32,7 +32,8 @@
 {/block}
 {block name='div.main'}
 <nav id="shop_menu">
-	<ul>
+{$category_tree}
+<!-- 	<ul>
 		<li><a href="#" class="parent">iPhone</a>
 		<ul>
 			<li><a href="#">Мега</a></li><li><a href="#">Ультра</a></li>
@@ -52,7 +53,7 @@
 		<ul>
 			<li><a href="#">Зарядки</a></li><li><a href="#">Колонки</a></li><li><a href="#">Блудсикер</a></li>
 		</ul></li>
-	</ul>
+	</ul> -->
 </nav>
 <!--
 	<div class='container'>

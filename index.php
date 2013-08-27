@@ -11,14 +11,9 @@
    $active = 'shop';
    $smarty->assign('active', $active);
 
-   // try {
-   //    require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Category.php');
-   //    $c = new Category;
-   //    $c->edit(4,-1,'Аксессуарыd');
-   //    echo 32;  
-   // } catch (Exception $e) {
-   //    echo $e->getMessage(); 
-   // }
+   require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Category.php');
+   $category = new Category;
+   $smarty->assign('category_tree', $category->make_tree(false));
 
    $images = array();
    $slider_img_fold = opendir($_SERVER['DOCUMENT_ROOT'] . '/images/slider');
