@@ -22,6 +22,19 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+CREATE TABLE category (
+   id    INT NOT NULL AUTO_INCREMENT,
+   name  VARCHAR(40) NOT NULL,
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE subcategory (
+   id        INT NOT NULL,
+   parent_id INT NOT NULL,
+   FOREIGN KEY(id)        REFERENCES category(id) ON DELETE CASCADE,
+   FOREIGN KEY(parent_id) REFERENCES category(id) ON DELETE CASCADE
+);
+
 --
 -- Структура таблицы `goods`
 --

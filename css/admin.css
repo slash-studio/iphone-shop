@@ -33,3 +33,72 @@ button.delete {
 	display: inline-block;
 	margin-bottom: 15px;
 }
+#edit-box input[type='text'], #edit-box select {
+   width: 220px;
+}
+#category_tree ul{
+   font-family: "Helvetica CY", "Nimbus Sans L";
+   font-size: 10.2pt;
+}
+div#tbl tr {
+   /*position: relative;*/
+}
+div.img-box {
+   display: none;
+   border: 1px solid black;
+   position: absolute;
+   /*left: -1px;*/
+}
+#edit-box {
+    width: 808px;
+}
+form.edit-form input[type="button"], form.edit-form input[type="submit"] {
+    font-size: 12px;
+    width: 100%;
+}
+form.edit-form select {
+    font-size: 12px;
+}
+form.edit-form {
+    margin: 5px;
+    text-align: left;
+}
+form.edit-form fieldset {
+    padding: 5px;
+}
+form.edit-form label, form.edit-form input {
+    display: block;
+}
+form.edit-form button {
+    display: inline-block;
+    width: 100px;
+}
+form.edit-form legend {
+    font-style: italic;
+}
+form.edit-form input {
+    margin: 3px 0;
+}
+form.add h1 {
+    font-size: 13px;
+    letter-spacing: -1px;
+    margin-bottom: 3px;
+}
+#edit label {
+    display: block;
+    float: right;
+    margin-right: 25px;
+}
+#edit form {
+    clear: both;
+}
+div#edit > div {
+    margin-top: 10px;
+}
+#edit-box input[type="text"], #edit-box select {
+    width: 220px;
+}
+#edit ul {
+    font-family: "Helvetica CY","Nimbus Sans L";
+    font-size: 10.2pt;
+}

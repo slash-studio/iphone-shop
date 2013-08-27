@@ -1,17 +1,16 @@
 <?php
-	session_start();
-	if (($_SESSION['admin_login'] != 'wais') || ($_SESSION['admin_pass'] != 'wais_pass107')) {
-		if (($_POST['login'] != 'wais') || ($_POST['pass'] != 'wais_pass107')) {
-			die('НЕВЕРНЫЙ ЛОГИН И ПАРОЛЬ!!!!');
-		} else {
-			$_SESSION['admin_login'] = 'wais';
-			$_SESSION['admin_pass'] = 'wais_pass107';
-		    header("Location: /admin/admin.php");
-		}
-	}
-	
 	require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/container.php');
 	require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Good.php');
+	
+	if (($_SESSION['admin_login'] != 'admin') || ($_SESSION['admin_pass'] != 'admin')) {
+		if (($_POST['login'] != 'admin') || ($_POST['pass'] != 'admin')) {
+			die('НЕВЕРНЫЙ ЛОГИН И ПАРОЛЬ!!!!');
+		} else {
+			$_SESSION['admin_login'] = 'admin';
+			$_SESSION['admin_pass'] = 'admin';
+		   header("Location: /admin/admin.php");
+		}
+	}
 	
 	$goods = Good::get_all();
    

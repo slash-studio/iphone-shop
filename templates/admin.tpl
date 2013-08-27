@@ -10,6 +10,7 @@
 		<div id="main_area">
 			<article id="goods">
 				<a href="/admin/edit_good.php" id="add_new" class="white_button big_button">Add new good</a>
+				<a href="/admin/edit_category.php" id="add_new" class="white_button big_button">Edit category</a>
 				<table>
 					<tr class="head">
 						<td>

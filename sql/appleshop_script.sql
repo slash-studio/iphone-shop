@@ -30,6 +30,19 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+CREATE TABLE category (
+   id    INT NOT NULL AUTO_INCREMENT,
+   name  VARCHAR(40) NOT NULL,
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE subcategory (
+   id        INT NOT NULL,
+   parent_id INT NOT NULL,
+   FOREIGN KEY(id)        REFERENCES category(id) ON DELETE CASCADE,
+   FOREIGN KEY(parent_id) REFERENCES category(id) ON DELETE CASCADE
+);
+
 --
 -- Структура таблицы `goods`
 --
@@ -59,3 +72,19 @@ CREATE TABLE IF NOT EXISTS `images` (
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+INSERT INTO category(name) VALUES
+   ('iPhone'),
+   ('iPod'),
+   ('iPad'),
+   ('Аксессуары'),
+   ('Наушники'),
+   ('Прочее');
+
+INSERT INTO subcategory(id, parent_id) VALUES
+   (1, 1),
+   (2, 2),
+   (3, 3),
+   (4, 4),
+   (5, 4),
+   (6, 6);
