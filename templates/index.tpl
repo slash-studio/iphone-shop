@@ -33,27 +33,6 @@
 {block name='div.main'}
 <nav id="shop_menu">
 {$category_tree}
-<!-- 	<ul>
-		<li><a href="#" class="parent">iPhone</a>
-		<ul>
-			<li><a href="#">Мега</a></li><li><a href="#">Ультра</a></li>
-		</ul></li><li><a href="#">iPod</a></li><li><a href="#">iPad</a></li><li><a href="#" class="parent">Аксессуары</a>
-		<ul>
-			<li><a href="#" class="parent">Чехлы</a>
-				<ul>
-					<li><a href="#">Gem</a></li><li><a href="#">Devine Rapier</a></li><li><a href="#">MaelStorm</a></li><li><a href="#">Hyperstone</a></li>
-				</ul>
-			</li><li><a href="#" class="parent">Няшки</a>
-				<ul>
-					<li><a href="#">Ня-Ня-Ня</a></li><li><a href="#">Лю-Лю-Лю</a></li>
-				</ul>
-			</li>
-		</ul>
-		</li><li><a href="#" class="parent">Прочее</a>
-		<ul>
-			<li><a href="#">Зарядки</a></li><li><a href="#">Колонки</a></li><li><a href="#">Блудсикер</a></li>
-		</ul></li>
-	</ul> -->
 </nav>
 <!--
 	<div class='container'>

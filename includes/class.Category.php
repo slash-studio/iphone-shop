@@ -52,7 +52,7 @@
             $st = $db->link->prepare("INSERT INTO $this->tblName(id, parent_id) VALUES(?, ?)");
             $id = $db->link->lastInsertId();
             $p_id = $parent_id == -1 ? $id : $parent_id;
-            $st->execute([$id, $p_id]);
+            $st->execute(array($id, $p_id));
             $db->link->commit();
          } catch (Exception $e) {
             $db->link->rollBack();
@@ -81,8 +81,8 @@
       {
          global $db;
          $result = $db->query('SELECT id, parent_id FROM subcategory');
-         $vertex    = [];
-         $sub_trees = [];
+         $vertex    = array();
+         $sub_trees = array();
          foreach ($result as $k => $v) {
           if ($v['parent_id'] == $v['id']) {
                $vertex[] = $v['parent_id'];
@@ -91,14 +91,14 @@
             }
          }
          $category = $db->query('SELECT id, name FROM category');
-         $names  = [];
+         $names  = array();
          foreach ($category as $k => $v) {
             $names[$v['id']][] = $v['name'];
          }
-         $leaf = [];
+         $leaf = array();
          $buildTree = function(&$t, $id) use(&$buildTree, &$leaf, $sub_trees, $names) {
             $cnt    = 0;
-            $t[$id] = [];
+            $t[$id] = array();
             if (isset($sub_trees[$id])) {
                foreach ($sub_trees[$id] as $k => $v) {
                   $buildTree($t[$id], $v);
