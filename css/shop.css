@@ -1,3 +1,53 @@
+#shop_menu {
+	text-align: left;
+	margin-bottom: 20px;
+}
+#shop_menu li {
+	display: inline-block;
+	background: white;
+}
+#shop_menu li ul {
+	display: none;
+}
+#shop_menu li ul>li {
+	display: block;
+}
+#shop_menu li ul {
+	border-bottom: 1px #bbb solid;
+}
+#shop_menu li ul>li>a {
+	border-right: 1px #bbb solid;
+	border-left: 1px #bbb solid;
+	margin-left: -1px;
+}
+#shop_menu li:hover>ul {
+	display: block;
+	position: absolute;
+}
+#shop_menu .parent {
+	background: url(/images/arrow.png) center right no-repeat;
+}
+#shop_menu ul ul ul {
+	margin-left: 191px;
+	margin-top: -38px;
+	border-top: 1px #bbb solid;
+}
+#shop_menu li a {
+	display: block;
+	text-decoration: none;
+	font-size: 120%;
+	min-width: 140px;
+	padding: 10px 25px;
+	text-align: center;
+	border-right: 1px #bbb solid;
+}
+#shop_menu li:hover {
+	background: #ddd;
+}
+
+#shop_menu>ul>li:last-child>a {
+	border-right: 0;
+}
 #catalog article.good {
 	display: inline-block;
 	text-align: center;
