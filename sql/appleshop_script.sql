@@ -78,7 +78,6 @@ INSERT INTO category(name) VALUES
    ('iPod'),
    ('iPad'),
    ('Аксессуары'),
-   ('Наушники'),
    ('Прочее');
 
 INSERT INTO subcategory(id, parent_id) VALUES

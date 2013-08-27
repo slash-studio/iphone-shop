@@ -5,27 +5,6 @@
 
    class Category
    {
-      public
-         $fieldsHash = [],
-         $fieldsArr  =
-            [
-               [
-                'name'     => 'id',
-                'caption'  => 'Категория',
-                'type'     => 'int',
-                'refKey'   => true,
-                'refTbl'   => 'category',
-                'refField' => 'id',
-                'refName'  => 'name'
-               ],
-               [
-                'name'     => 'parent_id',
-                'caption'  => 'Родительская категория',
-                'type'     => 'int',
-                'refKey'   => false
-               ],
-            ];
-
       function __construct()
       {
          $this->tblName = 'subcategory';
@@ -72,7 +51,7 @@
             $st = $db->link->prepare("INSERT INTO $this->tblName(id, parent_id) VALUES(?, ?)");
             $id = $db->link->lastInsertId();
             $p_id = $parent_id == -1 ? $id : $parent_id;
-            $st->execute([$id, $p_id]);
+            $st->execute(array($id, $p_id));
             $db->link->commit();
          } catch (Exception $e) {
             $db->link->rollBack();
@@ -101,8 +80,8 @@
       {
          global $db;
          $result = $db->query('SELECT id, parent_id FROM subcategory');
-         $vertex    = [];
-         $sub_trees = [];
+         $vertex    = array();
+         $sub_trees = array();
          foreach ($result as $k => $v) {
           if ($v['parent_id'] == $v['id']) {
                $vertex[] = $v['parent_id'];
@@ -111,14 +90,14 @@
             }
          }
          $category = $db->query('SELECT id, name FROM category');
-         $names  = [];
+         $names  = array();
          foreach ($category as $k => $v) {
             $names[$v['id']][] = $v['name'];
          }
-         $leaf = [];
+         $leaf = array();
          $buildTree = function(&$t, $id) use(&$buildTree, &$leaf, $sub_trees, $names) {
             $cnt    = 0;
-            $t[$id] = [];
+            $t[$id] = array();
             if (isset($sub_trees[$id])) {
                foreach ($sub_trees[$id] as $k => $v) {
                   $buildTree($t[$id], $v);
@@ -136,7 +115,7 @@
             if (!count($t)) {
                return '';
             }
-            $result = "<ul>\n";
+            $result = "<ul>";
             $isLeaf = false;
             foreach ($t as $k => $sub) {
                $new_node = "<li id='category_$k'><a href='javascript:void(0)' class='parent'>" . $names[$k][0] . "</a>";
@@ -147,9 +126,9 @@
                } else {
                   $result .= $new_node;
                }
-               $result .= "</li>\n";
+               $result .= "</li>";
             }
-            $result .= "</ul>\n";
+            $result .= "</ul>";
             return $result;
          };
          global $smarty;
