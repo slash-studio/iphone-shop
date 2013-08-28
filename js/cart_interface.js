@@ -1,13 +1,11 @@
 $(function() {
 	$('#add_to_cart').click(function(){
 		$id = $(this).attr('data');
-		$size = $('#good_size option:selected').val();
 		$.post(
 			'/includes/handlers/handler.Cart.php',
 			{  
 				mode: 'Add',
 				g_id: $id,
-				g_params: $size
 			}, 
 			function(data) {
 				alert(data);

@@ -27,12 +27,6 @@
 				{$good['description']}
 			</p>
 			<form id="card_form">
-				<label for="good_size">Size</label>
-				<select id="good_size" name="good_size">
-					{foreach $good['sizes'] item=size}
-						<option value="{$size}">{$size}</option>
-					{/foreach}
-				</select>
 				<span class="price">{$good['price']}€</span>
 				<button id="add_to_cart" class="white_button big_button" data="{$good['id']}">Add to cart</button>
 			</form>

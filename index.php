@@ -4,6 +4,12 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Good.php');
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Images.php');
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Search.php');
 
+   // require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/handlers/handler.Cart.php');
+
+   // $cart_Handler = new Cart_Handler();
+   // $cart_Handler->Add();
+   // $_SESSION['cart_info'] = serialize($cart_Handler->cart);
+
 if (isset($_GET['cid']) && !empty($_GET['cid'])) {
    $goods = Search::get_by_category(intval($_GET['cid']));
 } else {

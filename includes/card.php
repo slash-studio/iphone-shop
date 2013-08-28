@@ -7,6 +7,7 @@
 	$smarty->assign('good', $good);
 	$images = Images::Select($_GET['id']);
 	array_shift($images);
-	$smarty->assign('images', $images);
+	$smarty->assign('images', $images)
+			 ->assign('active', 'shop');
 	$smarty->display('card.tpl');
 ?>

@@ -8,16 +8,14 @@
 		public $g_id;
 		public $g_name;
 		public $g_count;
-		public $g_params;
 		public $g_price;
 
-		public function __construct($g_id, $g_name, $g_price, $g_params)
+		public function __construct($g_id, $g_name, $g_price)
 		{
 			$this->g_id = $g_id;
 			$this->g_name = $g_name;
 			$this->g_count = 1;
 			$this->g_price = $g_price;
-			$this->g_params = $g_params;
 		}
 
 		public function Total()
@@ -25,8 +23,8 @@
 			return $this->g_price * $this->g_count;
 		}
 
-		public static function Get_id_for_cart($g_id, $g_params) {
-			return $g_id. '@' . $g_params;
+		public static function Get_id_for_cart($g_id) {
+			return $g_id;
 		}
 
 		public function Get_array()
@@ -36,9 +34,8 @@
 				'name' => $this->g_name,
 				'count' => $this->g_count,
 				'price' => $this->g_price,
-				'params' => join(' - ', explode('@', $this->g_params)),
 				'image' => Images::Get_first_image_id($this->g_id),
-				'c_id' => $this->Get_id_for_cart($this->g_id, $this->g_params),
+				'c_id' => $this->Get_id_for_cart($this->g_id),
 				'total' => $this->Total()
 			);
 		}
@@ -52,7 +49,7 @@
 
 		public function is_Exists($c_id)
 		{
-			return $this->goods[$c_id]->g_count > 0;
+			return isset($this->goods[$c_id]) ? $this->goods[$c_id]->g_count > 0 : false;
 		}
 
 		public function Update()
@@ -65,17 +62,17 @@
 			}
 		}
 
-		public function Add($g_id, $g_params)
+		public function Add($g_id)
 		{
 			global $db;
 
-			$c_id = Cart_good::Get_id_for_cart($g_id, $g_params);
+			$c_id = Cart_good::Get_id_for_cart($g_id);
 
 			if ($this->is_Exists($c_id)) {
 				$this->goods[$c_id]->g_count++;
 			} else {
 				$good = Good::Get_from_id($g_id);
-				$this->goods[$c_id] = new Cart_good($g_id, $good['name'], $good['price'], $g_params);
+				$this->goods[$c_id] = new Cart_good($g_id, $good['name'], $good['price']);
 			}
 		}
 
