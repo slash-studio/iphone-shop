@@ -4,7 +4,7 @@ $(function(){
 		$old_price = $('#g_old_price').val();
 		$price = $('#g_price').val();
 		$description = $('#g_description').val();
-		$category = $('#g_category').val();
+		$category_id = $('#g_category_id').val();
 		$keywords = $('#g_keywords').val();
 		$display = $('#g_display').is(':checked') | 0;
 		$id = $(this).attr('data');
@@ -20,7 +20,7 @@ $(function(){
 				g_name: $name,
 				g_old_price: $old_price,
 				g_price: $price,
-				g_category: $category,
+				g_category_id: $category_id,
 				g_description: $description,
 				g_keywords: $keywords,
 				g_display: $display

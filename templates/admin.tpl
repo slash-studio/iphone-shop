@@ -49,7 +49,7 @@
 							<a href="/includes/card.php?id={$good['id']}">{$good['name']}</a>
 						</td>
 						<td>
-							{$good['category']}
+							{$good['category_id']}
 						</td>
 						<td class="price">
 							{$good['price']} r

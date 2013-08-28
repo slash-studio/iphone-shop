@@ -2,6 +2,8 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/user_consts.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.Field.php';
 
+define('ERROR_QUERY', 'В данный момент невозможно подключение к базе данных.');
+
 class DBConnect
 {
 	public $link;

@@ -12,23 +12,23 @@ class Good extends Entity
             'g_name' => new Field('name', '', array('is_Set')),
             'g_description' => new Field('description', ''),
             'g_keywords' => new Field('keywords', ''),
-			'g_category' => new Field('category', 1, array('is_Set')),
+			   'g_category_id' => new Field('category_id', 1, array('is_Set')),
             'g_old_price' => new Field('old_price', 0, array('is_Set')),
             'g_price' => new Field('price', 0, array('is_Set')),
             'g_display' => new Field('display', 1)
         );
    }
    
-   public static function get_all_with_where($where = '')
-    {
-        global $db;
-        $query = 'SELECT * FROM ' . self::TABLE . ' t ' . $where . ' ORDER BY t.id DESC';
-        $goods = $db->query($query);
+   public static function get_all_with_where($where = '', $order_by = '', $params = Array())
+   {
+      global $db;
+      $query = 'SELECT * FROM ' . self::TABLE . ' t ' . $where . (empty($order_by) ? ' ORDER BY t.id DESC' : $order_by);
+      $goods = $db->query($query, $params);
       foreach ($goods as $key => $good){
          $goods[$key]['image'] = Images::Get_first_image_id($goods[$key]['id']);
       }
       return $goods;
-    } 
+   } 
    
    public static function Get_all()
     {

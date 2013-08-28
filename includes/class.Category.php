@@ -77,7 +77,7 @@
          return $st->execute(Array($id));
       }
 
-      public function make_tree($isShowTree = true)
+      public function make_tree($isShowTree = true, $isTopMenu = false)
       {
          global $db;
          $result = $db->query('SELECT id, parent_id FROM subcategory');
@@ -112,18 +112,19 @@
          foreach ($vertex as $v) {
             $buildTree($tree, $v);
          }
-         $buildTree = function($t) use(&$buildTree, $names) {
+         $buildTree = function($t) use(&$buildTree, $names, $isTopMenu) {
             if (!count($t)) {
                return '';
             }
             $result = "<ul>";
             $isLeaf = false;
             foreach ($t as $k => $sub) {
-               $new_node = "<li id='category_$k'><a href='javascript:void(0)' class='parent'>" . $names[$k][0] . "</a>";
+               $href_str = $isTopMenu ? "?cid=$k" : 'javascript:void(0)';
+               $new_node = "<li id='category_$k'><a href='$href_str' class='parent'>" . $names[$k][0] . "</a>";
                $next_node = $buildTree($sub);
                $new_node .= $next_node;
                if ($next_node == '') {
-                  $result .= "<li id='category_$k'><a href='javascript:void(0)'>" . $names[$k][0] . "</a>";
+                  $result .= "<li id='category_$k'><a href='$href_str'>" . $names[$k][0] . "</a>";
                } else {
                   $result .= $new_node;
                }

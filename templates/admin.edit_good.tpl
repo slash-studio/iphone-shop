@@ -11,8 +11,8 @@
 				<input id="g_name" name="g_name" value="{$good['name']}" />
 			</div>
 			<div class="block">
-				<label for="g_category">Категория</label>
-				<input id="g_category" name="g_category" value="{$good['category']}" />
+				<label for="g_category_id">Категория</label>
+				<input id="g_category_id" name="g_category_id" value="{$good['category_id']}" />
 			</div>
 			<div class="block">
 				<label for="g_price">Цена</label>
