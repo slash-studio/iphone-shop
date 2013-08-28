@@ -12,7 +12,9 @@
 			</div>
 			<div class="block">
 				<label for="g_category_id">Категория</label>
-				<input id="g_category_id" name="g_category_id" value="{$good['category_id']}" />
+				<select id="g_category_id" name="g_category_id">
+					{$categories}
+				</select>
 			</div>
 			<div class="block">
 				<label for="g_price">Цена</label>

@@ -10,6 +10,18 @@
       {
          $this->tblName = 'subcategory';
       }
+	  
+	  public static function Get_all() 
+	  {
+		global $db;
+		$query = 'SELECT * FROM category';
+		$categories = $db->query($query);
+		$res = array();
+		foreach ($categories as $cat) {
+			$res[$cat['id']] = $cat['name'];
+		}
+		return $res;
+	  }
 
       public function edit($id, $parent_id, $name)
       {
@@ -77,7 +89,7 @@
          return $st->execute(Array($id));
       }
 
-      public function make_select_tree()
+      public static function make_select_tree()
       {
          global $db;
          $result = $db->query('SELECT id, parent_id FROM subcategory');
