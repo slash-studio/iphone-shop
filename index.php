@@ -4,8 +4,8 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Good.php');
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Images.php');
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Search.php');
 
-if (isset($_GET['cid']) && is_int(intval($_GET['cid']))) {
-   $goods = Search::get_by_category($_GET['cid']);
+if (isset($_GET['cid']) && !empty($_GET['cid'])) {
+   $goods = Search::get_by_category(intval($_GET['cid']));
 } else {
    $goods = Good::get_all_displayed();
 }

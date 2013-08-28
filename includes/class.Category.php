@@ -77,6 +77,55 @@
          return $st->execute(Array($id));
       }
 
+      public function make_select_tree()
+      {
+         global $db;
+         $result = $db->query('SELECT id, parent_id FROM subcategory');
+         $vertex    = array();
+         $sub_trees = array();
+         foreach ($result as $k => $v) {
+          if ($v['parent_id'] == $v['id']) {
+               $vertex[] = $v['parent_id'];
+            } else {
+               $sub_trees[$v['parent_id']][] = $v['id'];
+            }
+         }
+         $category = $db->query('SELECT id, name FROM category');
+         $names  = array();
+         foreach ($category as $k => $v) {
+            $names[$v['id']][] = $v['name'];
+         }
+         $leaf = array();
+         $buildTree = function(&$t, $id) use(&$buildTree, &$leaf, $sub_trees, $names) {
+            $cnt    = 0;
+            $t[$id] = array();
+            if (isset($sub_trees[$id])) {
+               foreach ($sub_trees[$id] as $k => $v) {
+                  $buildTree($t[$id], $v);
+                  $cnt++;
+               }
+            }
+            if (!$cnt) {
+               $leaf[$id] = $names[$id][0];
+            }
+         };
+         foreach ($vertex as $v) {
+            $buildTree($tree, $v);
+         }
+         $buildTree = function($t) use(&$buildTree, $names) {
+            if (!count($t)) {
+               return '';
+            }
+            $result = '';
+            foreach ($t as $k => $sub) {
+               $result .= "<option value='$k'>" . $names[$k][0] . "</option>\n";
+               $result .= $buildTree($sub);
+            }
+            return $result;
+         };
+         return $buildTree($tree);
+      }
+
       public function make_tree($isShowTree = true, $isTopMenu = false)
       {
          global $db;
@@ -117,7 +166,6 @@
                return '';
             }
             $result = "<ul>";
-            $isLeaf = false;
             foreach ($t as $k => $sub) {
                $href_str = $isTopMenu ? "?cid=$k" : 'javascript:void(0)';
                $new_node = "<li id='category_$k'><a href='$href_str' class='parent'>" . $names[$k][0] . "</a>";
