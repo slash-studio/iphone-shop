@@ -43,7 +43,7 @@
 		public static function Select_first($good_id)
 		{
 			$photos = self::Select($good_id);
-			return $photos[0];
+			return empty($photos) ? null : $photos[0];
 		}
 
 		public static function Get_first_image_id($good_id)

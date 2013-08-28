@@ -28,8 +28,9 @@ class Search
       return $goods;
    }
 
-   public static function clean_post_data($data)
+   public static function clean_post_data(&$data)
    {
+      $data = trim($data);
       $data = strip_tags($data);
       $data = strtolower($data);
       $data = preg_replace('~[^a-z0-9 \x80-\xFF]~i', "",$data); 
@@ -72,35 +73,47 @@ class Search
    public function get_matches($content, $word = array())
    {
       $matches = array();
+      $one = floor(100 / count($word));
+      $residue = 150 - $one * count($word);
+      foreach ($content as $p) {
+         $matches[$p['id']] = empty($matches[$p['id']]) ? 0 : $matches[$p['id']];
+         foreach ($word as $keyword) {
+            $matches[$p['id']] += strpos($p['name'], $keyword)  ? $one : 0;
+         }
+         $matches[$p['id']] += $residue;
+      }
       foreach($content as $p) {
-         $res[$p->page_id] = $p;
          foreach($word as $w) {
             if(trim($w) != "") {
                $w = trim($w);
-               $matches[$p->page_id] = $matches[$p->page_id] + count(explode($w, $p->page_name));
-               $matches[$p->page_id] = $matches[$p->page_id] + count(explode($w, $p->page_text));
+               $matches[$p['id']] += count(explode($w, $p['name']))
+                                   + count(explode($w, $p['description']))
+                                   + count(explode($w, $p['keywords']));
             }
          }
       }
       arsort($matches);
-      $i = 0;
-      foreach($matches as $k => $v) {
-         $result[$i] = $res[$k];
-         $result[$i]->matches = $v;
-         $i++;
+      foreach($matches as $id => $cnt) {
+         foreach ($content as $good) {
+            if ($good['id'] == $id) {
+               $result[] = $good;
+               break;
+            }
+         }
       }
       return $result;
    }
 
    public static function search_good($query)
    {
-      $max = 10;
-      $min_length = 3;
+      $max = 15;
+      $min_length = 2;
       $word = explode(" ", self::clean_post_data($query));
       $words = self::clean_array_to_search($word, $max, $min_length);
       if (empty($words)) return Array();
       $result = self::get_goods_result($words);
-      // $result = self::get_matches($results, $words);
+      $words = self::clean_array_to_search($word, $max, 0);
+      $result = self::get_matches($result, $words);
       return $result;
    }
 
