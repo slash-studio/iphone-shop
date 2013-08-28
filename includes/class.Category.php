@@ -124,14 +124,14 @@
          foreach ($vertex as $v) {
             $buildTree($tree, $v);
          }
-         $buildTree = function($t) use(&$buildTree, $names) {
+         $buildTree = function($t, $depth = 0) use(&$buildTree, $names) {
             if (!count($t)) {
                return '';
             }
             $result = '';
             foreach ($t as $k => $sub) {
-               $result .= "<option value='$k'>" . $names[$k][0] . "</option>\n";
-               $result .= $buildTree($sub);
+               $result .= "<option value='$k'>" . str_repeat('&ensp;', $depth) . $names[$k][0] . "</option>\n";
+               $result .= $buildTree($sub, $depth + 1);
             }
             return $result;
          };

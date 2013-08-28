@@ -43,6 +43,19 @@ CREATE TABLE subcategory (
   FOREIGN KEY(parent_id) REFERENCES category(id) ON DELETE CASCADE
 );
 
+
+CREATE TABLE cart_order (
+  id        INT NOT NULL AUTO_INCREMENT,
+  name      VARCHAR(100) NOT NULL,
+  phone     VARCHAR(30)  NOT NULL,
+  email     VARCHAR(100) NOT NULL,
+  delivery  int(1) NOT NULL DEFAULT '0', -- 0 - Доставка не нужна, 1 - доставка необходима
+  address   VARCHAR(100) NOT NULL,
+  PRIMARY KEY(id)
+);
+
+
+
 --
 -- Структура таблицы `goods`
 --

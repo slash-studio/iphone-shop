@@ -11,6 +11,6 @@
 		</div>
 	</div>
 	<footer>
-		©2013 Sevn Layers, Moscow
+		©2013 iGleb, Vladivostok
 	</footer>
 {/block}
