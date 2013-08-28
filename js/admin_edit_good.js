@@ -2,8 +2,9 @@ $(function(){
 	$('button.save').click(function(){
 		$name = $('#g_name').val();
 		$old_price = $('#g_old_price').val();
-		$new_price = $('#g_new_price').val();
+		$price = $('#g_price').val();
 		$description = $('#g_description').val();
+		$category = $('#g_category').val();
 		$keywords = $('#g_keywords').val();
 		$display = $('#g_display').is(':checked') | 0;
 		$id = $(this).attr('data');
@@ -18,7 +19,8 @@ $(function(){
 				id: $id,
 				g_name: $name,
 				g_old_price: $old_price,
-				g_new_price: $new_price,
+				g_price: $price,
+				g_category: $category,
 				g_description: $description,
 				g_keywords: $keywords,
 				g_display: $display

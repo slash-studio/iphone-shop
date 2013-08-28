@@ -12,8 +12,9 @@ class Good extends Entity
             'g_name' => new Field('name', '', array('is_Set')),
             'g_description' => new Field('description', ''),
             'g_keywords' => new Field('keywords', ''),
+			'g_category' => new Field('category', 1, array('is_Set')),
             'g_old_price' => new Field('old_price', 0, array('is_Set')),
-            'g_new_price' => new Field('new_price', 0, array('is_Set')),
+            'g_price' => new Field('price', 0, array('is_Set')),
             'g_display' => new Field('display', 1)
         );
    }
@@ -47,21 +48,6 @@ class Good extends Entity
       $res[0]['image'] = Images::Get_first_image_id($res[0]['id']);
       return $res[0];
     }
-   
-   public static function Sizes_array($sizes) 
-   {
-      return explode(',', $sizes);
-   }
-   
-   public static function Sizes_hash($sizes) 
-   {
-      $sizes = explode(',', $sizes);
-      $res = array();
-      foreach ($sizes as $size) {
-         $res[$size] = 1;
-      }
-      return $res;
-   }
 
    public function Delete() 
    {

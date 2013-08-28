@@ -20,10 +20,10 @@
 							Description
 						</td>
 						<td>
-							Old price
+							Category
 						</td>
 						<td>
-							New price
+							Price
 						</td>
 						<td>
 							Keywords
@@ -48,11 +48,11 @@
 						<td class="name">
 							<a href="/includes/card.php?id={$good['id']}">{$good['name']}</a>
 						</td>
-						<td class="price">
-							{$good['old_price']}€
+						<td>
+							{$good['category']}
 						</td>
 						<td class="price">
-							{$good['new_price']}€
+							{$good['price']} r
 						</td>
 						<td class="sizes" colspan="2">
 							{$good['keywords']}

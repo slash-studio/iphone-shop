@@ -7,27 +7,31 @@
 	<form id="edit_good" name="edit_good">
 		<div class="inline">
 			<div class="block">
-				<label for="g_name">Name</label>
+				<label for="g_name">Название</label>
 				<input id="g_name" name="g_name" value="{$good['name']}" />
 			</div>
 			<div class="block">
-				<label for="g_old_price">Old price</label>
+				<label for="g_category">Категория</label>
+				<input id="g_category" name="g_category" value="{$good['category']}" />
+			</div>
+			<div class="block">
+				<label for="g_price">Цена</label>
+				<input id="g_price" name="g_price" value="{$good['price']}" />
+			</div>
+			<div class="block">
+				<label for="g_old_price">Старая цена</label>
 				<input id="g_old_price" name="g_old_price" value="{$good['old_price']}" />
 			</div>
 			<div class="block">
-				<label for="g_new_price">New price</label>
-				<input id="g_new_price" name="g_new_price" value="{$good['new_price']}" />
-			</div>
-			<div class="block">
-				<label for="g_description">Description</label>
+				<label for="g_description">Описание</label>
 				<textarea id="g_description" name="g_description" cols="40" rows="6">{$good['description']}</textarea>
 			</div>
 			<div class="block">
-				<label for="g_keywords">Keywords</label>
+				<label for="g_keywords">Ключевые слова</label>
 				<textarea id="g_keywords" name="g_keywords" cols="40" rows="6">{$good['keywords']}</textarea>
 			</div>
 			<div class="block">
-				<label for="g_display">Display</label>
+				<label for="g_display">Показывать на сайте</label>
 				<input type="checkbox" id="g_display" name="g_display" {if $good['display']}checked="checked"{/if} />
 			</div>
 		</div>

@@ -34,6 +34,8 @@ class DBConnect
 	{
 		$values = array_values($arr);
 		$query = "INSERT INTO " . $table_name . " (" . join(',', array_keys($arr)) . ") VALUES (" . str_repeat('?,', count($values) - 1) . "?)";
+		echo $query;
+		var_dump($values);
 		$this->exec($query, $values);
 		return $this->link->lastInsertId();
 	}
@@ -84,7 +86,8 @@ class DBConnect
 	public function last_insert_id()
 	{
 		return $this->link->lastInsertId();
-	}
+	} ///нахуя
+	
 
 }
 
