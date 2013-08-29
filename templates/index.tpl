@@ -2,8 +2,6 @@
 {block name='links' append}
 	<link href="/css/shop.css" rel="stylesheet" />
 	<link href="/css/slider.css" rel="stylesheet" />
-
-	<link href="/css/slider.css" rel="stylesheet" />
 	<script src="/js/jquery.slides.min.js"></script>
 	{literal}
 	<script>
@@ -29,6 +27,14 @@
     }
   </style>
 	{/literal}
+	<script src="/js/jquery.powerful-placeholder.min.js"></script>
+	<script>
+	{literal}
+	  $(function(){
+		$.Placeholder.init({color: "#aaa"});
+	  });
+	{/literal}
+	</script>
 {/block}
 {block name='div.main'}
 {if isset($category_tree)}<nav id="shop_menu">{$category_tree}</nav>{/if}

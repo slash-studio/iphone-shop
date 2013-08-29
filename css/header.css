@@ -8,6 +8,7 @@ header {
 }
 header nav {
 	vertical-align: top;
+	display: inline-block;
 }
 header nav ul li {
 	display: inline-block;
@@ -21,4 +22,18 @@ header nav ul li a {
 }
 header nav ul li a.active {
 	color: red;
+}
+#search {
+	float: right;
+	margin-top: 15px;
+}
+#q_text {
+	height: 15px;
+	padding: 3px;
+	border: 1px #bbb solid;
+}
+#search_button {
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
 }

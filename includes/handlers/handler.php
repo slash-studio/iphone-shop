@@ -18,10 +18,8 @@ abstract class Handler
     public function Insert($params)
     {
 		foreach($this->entity->fields as $name => $field) {
-			echo $name . ' ' . $params[$name];
 			$this->entity->fields[$name]->val = $params[$name];
 		}
-		var_dump($this->entity);
 		$this->entity->Insert();
 		echo "ok";
     }

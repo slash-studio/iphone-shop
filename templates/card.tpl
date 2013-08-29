@@ -27,7 +27,7 @@
 				{if isset($good['description'])}{$good['description']}{else}Описание{/if}
 			</p>
 			<form id="card_form">
-				<span class="price">{if isset($good['price'])}{$good['price']}€{else}0€{/if}</span>
+				<span class="price">{if isset($good['price'])}{$good['price']} руб.{else}0 руб.{/if}</span>
 				<button id="add_to_cart" class="white_button big_button" data="{$good['id']}">Add to cart</button>
 			</form>
 		</div>

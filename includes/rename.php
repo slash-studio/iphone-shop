@@ -2,7 +2,7 @@
 	require_once ($_SERVER['DOCUMENT_ROOT'] . '/admin/check_pass.php');
 	$uploaddir = 'uploads/'; 
 	$path = $uploaddir . $_POST['name'] . '.jpg';
-	//$im = imagecreatefromjpeg($path);
+	$im = imagecreatefromjpeg($path);
 	//$arr = getimagesize($path);
 	const BIGGEST_SIZE_WIDTH = 550;
 	const BIG_SIZE_WIDTH = 400;
@@ -10,7 +10,7 @@
 	const SMALL_SIZE_WIDTH = 80;
 	
 	$arr = getimagesize($path);
-	
+	/*
 	function resize($image, $new_width, $path, $width, $height) 
 	{
 		$new_height = round($new_width / $width * $height);
@@ -38,7 +38,7 @@
 			  $uploaddir . $_POST['name'] . '_s.jpg',
 			  MIDDLE_SIZE_WIDTH,
 			  $arr[1]);
-	
+	*/
 	/*
 	function resize($image, $size, $path) 
 	{
@@ -56,7 +56,7 @@
 	$image->destroy(); 
 	*/
 	//big
-	/*
+	
 	$w = BIG_SIZE_WIDTH;
 	$h = round(BIG_SIZE_WIDTH / $arr[0] * $arr[1]);
 	
@@ -85,8 +85,8 @@
 	$small = imagecreatetruecolor($w, $h);
 	imagecopyresampled($small, $im, 0, 0, 0, 0, $w, $h, $arr[0], $arr[1]);
 	
-	imagejpeg($big, $uploaddir . $_POST['name'] . '.jpg');
+	imagejpeg($big, $uploaddir . $_POST['name'] . '_b.jpg');
 	imagejpeg($middle, $uploaddir . $_POST['name'] . '_m.jpg');
 	imagejpeg($small, $uploaddir . $_POST['name'] . '_s.jpg');
-	*/
+	
 ?>

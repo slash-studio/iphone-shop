@@ -15,6 +15,7 @@ class Good extends Entity
             'g_category_id' => new Field('category_id', 1, array('is_Set')),
             'g_old_price' => new Field('old_price', 0, array('is_Set')),
             'g_price' => new Field('price', 0, array('is_Set')),
+			'g_main_display' => new Field('main_display', 0),
             'g_display' => new Field('display', 1)
       );
    }

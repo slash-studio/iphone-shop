@@ -36,9 +36,13 @@
 				<label for="g_display">Показывать на сайте</label>
 				<input type="checkbox" id="g_display" name="g_display" {if $good['display']}checked="checked"{/if} />
 			</div>
+			<div class="block">
+				<label for="g_main_display">Показывать на главной</label>
+				<input type="checkbox" id="g_main_display" name="g_main_display" {if $good['main_display']}checked="checked"{/if} />
+			</div>
 		</div>
 		<div class="block">
-			<button class="white_button big_button save" id="{$mode}" data="{$good['id']}">Add changes</button>
+			<button class="white_button big_button save" id="{$mode}" data="{$good['id']}">Сохранить</button>
 		</div>
 	</form>
 {/block}

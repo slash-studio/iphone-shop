@@ -8,8 +8,11 @@
          <li><a href="/contacts" {if isset($active) && $active == 'contacts'}class="active"{/if}>Contacts</a></li><li><a href="/">Home</a></li>
 		</ul>
 	</nav>
-   <form method="get" action="/search/">
-      <input type="submit" value="">
-      <input type="text" name="q" value="{$search_query|default:'поиск по сайту'}" data="поиск по сайту" style="color: rgb(0, 0, 0);">
-   </form>
+	<div id="search">
+	    <form method="get" action="/search/">
+		    <input type="text" id="q_text" name="q" autofocus placeholder="Поиск по сайту" value="{$search_query}" data="Поиск по сайту">
+			<button id="search_button">s</button>
+	    </form>
+	</div>
+>>>>>>> f
 </header>

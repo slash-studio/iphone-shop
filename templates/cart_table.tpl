@@ -2,16 +2,16 @@
    <table>
       <tr class="head">
          <td colspan="2">
-            Description
+            Описание
          </td>
          <td>
-            Price
+            Цена
          </td>
          <td>
-            Quantity
+            Количество
          </td>
          <td>
-            Total
+            Всего
          </td>
       </tr>
       {foreach $cart item=good}
@@ -20,19 +20,19 @@
                <img src="/includes/uploads/{$good['image']}_s.jpg" />
             </td>
             <td class="name">
-               <a href="/card/{$good['id']}">{$good['name']}</a>
+               <a href="/includes/card.php?id={$good['id']}">{$good['name']}</a>
             </td>
             <td class="price">
-               {$good['price']}€
+               {$good['price']} руб.
             </td>
             <td class="quantity">
-               <input value="{$good['count']}" /> <button class="white_button" data="{$good['c_id']}">Update</button>
+               <input value="{$good['count']}" /> <button class="white_button" data="{$good['c_id']}">Обновить</button>
             </td>
             <td class="delete">
-               <button class="white_button" data="{$good['c_id']}">Remove</button>
+               <button class="white_button" data="{$good['c_id']}">Удалить</button>
             </td>
             <td class="price">
-               {$good['total']}€
+               {$good['total']} руб.
             </td>
          </tr>
       {/foreach}
@@ -40,11 +40,10 @@
             <td colspan="5">
             </td>
             <td>
-               Total: {$total}€
+               Итого: {$total} руб.
             </td>
          </tr>
    </table>
-   <button id="clear" class="white_button big_button">Remove all</button>
-   <!---->
-   <button id="checkout" class="white_button big_button">Checkout</button>
+   <button id="clear" class="white_button big_button">Удалить все</button>
+   <button id="checkout" class="white_button big_button">Заказать</button>
 </div>

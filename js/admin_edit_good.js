@@ -6,6 +6,7 @@ $(function(){
 		$description = $('#g_description').val();
 		$category_id = $('#g_category_id').val();
 		$keywords = $('#g_keywords').val();
+		$main_display = $('#g_main_display').is(':checked') | 0;
 		$display = $('#g_display').is(':checked') | 0;
 		$id = $(this).attr('data');
 		$mode = 'Update';
