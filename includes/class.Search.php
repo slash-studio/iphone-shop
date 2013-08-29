@@ -9,21 +9,25 @@ class Search
    
    public static function get_by_category($category_id)
    {
-      global $db;
       $goods = Array();
-      $new_arr = Good::get_all_with_where(" WHERE t.category_id = $category_id");
-      foreach ($new_arr as $arr) {
-         $goods[] = $arr;
-      }
-      $result = $db->query('SELECT id FROM subcategory WHERE parent_id=?', Array($category_id));
-      if (empty($result)) return $goods;
-      
-      foreach ($result as $num => $id) {
-         if ($id['id'] == $category_id) continue;
-         $new_arr = self::get_by_category($id['id']);
+      try {
+         global $db;
+         $new_arr = Good::get_all_with_where(" WHERE t.category_id = $category_id");
          foreach ($new_arr as $arr) {
             $goods[] = $arr;
          }
+         $result = $db->query('SELECT id FROM subcategory WHERE parent_id=?', Array($category_id));
+         if (empty($result)) return $goods;
+         
+         foreach ($result as $num => $id) {
+            if ($id['id'] == $category_id) continue;
+            $new_arr = self::get_by_category($id['id']);
+            foreach ($new_arr as $arr) {
+               $goods[] = $arr;
+            }
+         }
+      } catch (Exception $e) {
+         //
       }
       return $goods;
    }
@@ -93,6 +97,7 @@ class Search
          }
       }
       arsort($matches);
+      $result = Array();
       foreach($matches as $id => $cnt) {
          foreach ($content as $good) {
             if ($good['id'] == $id) {

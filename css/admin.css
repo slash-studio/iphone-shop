@@ -102,3 +102,6 @@ div#edit > div {
     font-family: "Helvetica CY","Nimbus Sans L";
     font-size: 10.2pt;
 }
+a.active {
+  color: #FF0000 !important;
+}

@@ -14,6 +14,11 @@
       {
          $this->cart = unserialize($_SESSION['cart_info']);
       }
+
+      public function get_hash($id, $email)
+      {
+         return md5(md5($id).$email);
+      }
       
       public function Clear()
       {
@@ -46,7 +51,7 @@
 
          global $smarty;
          $smarty->assign('host', $mail->site)
-                ->assign('hash', md5(md5($last_id).$_POST['email']))
+                ->assign('hash', $this->get_hash($last_id, $_POST['email']))
                 ->assign('email', $_POST['email'])
                 ->assign('total', $this->cart->goods_total)
                 ->assign('cart', $this->cart->Get_array());
@@ -73,6 +78,8 @@
    }
    
    $cart_Handler = new Cart_Handler();
-   $cart_Handler->$_POST['mode']();
-   $_SESSION['cart_info'] = serialize($cart_Handler->cart);
+   if (!empty($_POST['mode'])) {
+      $cart_Handler->$_POST['mode']();
+      $_SESSION['cart_info'] = serialize($cart_Handler->cart);
+   }
 ?>

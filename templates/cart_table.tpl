@@ -20,7 +20,7 @@
                <img src="/includes/uploads/{$good['image']}_s.jpg" />
             </td>
             <td class="name">
-               <a href="/includes/card.php?id={$good['id']}">{$good['name']}</a>
+               <a href="/card/{$good['id']}">{$good['name']}</a>
             </td>
             <td class="price">
                {$good['price']}€

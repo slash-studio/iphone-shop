@@ -43,7 +43,7 @@
                Total: {$total}€
             </td>
          </tr></table>
-</div><a href="{$host}/includes/cart_confirm?h={$hash}&m={$email}">Подтвердить заказ</a>
+</div><a href="{$host}/cart_confirm/?h={$hash}&m={$email}">Подтвердить заказ</a>
          </div>
       </div>
       <footer style="margin: 20px 0; padding: 0; font-size: 80%; text-align: center; display: block;">

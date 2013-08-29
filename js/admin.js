@@ -23,6 +23,8 @@ $(function(){
 		iframe:true, 
 		height:"85%",
 		width:"50%"
+	}).click(function(){
+		
 	});
 	$("a.edit_images").colorbox({
 		iframe:true, 

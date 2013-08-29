@@ -7,22 +7,31 @@
 
 		public static function Insert($good_id)
 		{
-			global $db;
-			$query = "INSERT INTO " . self::TABLE . "(good_id) VALUES (?)";
-			$db->exec($query, array($good_id));
-			return $db->link->lastInsertId();
+			try {
+				global $db;
+				$query = "INSERT INTO " . self::TABLE . "(good_id) VALUES (?)";
+				$db->exec($query, array($good_id));
+				$result =  $db->link->lastInsertId();
+			} catch (Exception $e) {
+				$result = -1;
+			}
+			return $result;
 		}
 
 		public static function Delete($id)
 		{
-			global $db;
-			$query = "DELETE FROM " . self::TABLE . " WHERE " . self::TABLE . ".id = ?";
-			$db->exec($query, array($id));
+			try {
+				global $db;
+				$query = "DELETE FROM " . self::TABLE . " WHERE " . self::TABLE . ".id = ?";
+				$db->exec($query, array($id));
 
-			unlink($_SERVER['DOCUMENT_ROOT'] . '/includes/uploads/' . $id . '.jpg');
-			unlink($_SERVER['DOCUMENT_ROOT'] . '/includes/uploads/' . $id . '_b.jpg');
-			unlink($_SERVER['DOCUMENT_ROOT'] . '/includes/uploads/' . $id . '_m.jpg');
-			unlink($_SERVER['DOCUMENT_ROOT'] . '/includes/uploads/' . $id . '_s.jpg');
+				unlink($_SERVER['DOCUMENT_ROOT'] . '/includes/uploads/' . $id . '.jpg');
+				unlink($_SERVER['DOCUMENT_ROOT'] . '/includes/uploads/' . $id . '_b.jpg');
+				unlink($_SERVER['DOCUMENT_ROOT'] . '/includes/uploads/' . $id . '_m.jpg');
+				unlink($_SERVER['DOCUMENT_ROOT'] . '/includes/uploads/' . $id . '_s.jpg');
+			} catch (Exception $e) {
+				//
+			}
 		}
 
 		public static function Delete_all_of_good($good_id)
@@ -35,9 +44,14 @@
 
 		public static function Select($good_id)
 		{
-			global $db;
-			$query = "SELECT * FROM " . self::TABLE . " t WHERE t.good_id = ?";
-			return $db->query($query, array($good_id));
+			try {
+				global $db;
+				$query = "SELECT * FROM " . self::TABLE . " t WHERE t.good_id = ?";
+				$result = $db->query($query, array($good_id));	
+			} catch (Exception $e) {
+				$result = Array();
+			}
+			return $result;
 		}
 
 		public static function Select_first($good_id)

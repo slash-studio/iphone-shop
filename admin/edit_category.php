@@ -1,7 +1,6 @@
 <?php
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/container.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/admin/check_pass.php');
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Category.php');
+
 
 $category = new Category();
 try {

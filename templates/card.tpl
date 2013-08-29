@@ -15,19 +15,19 @@
 {block name='div.main'}
 	<article id="card">
 		<div class="left">
-			<img src="/includes/uploads/{$good['image']}_b.jpg" class="main_img" />
-			<a href="/includes/uploads/{$good['image']}.jpg" rel="gallery" class="more">+</a>
+			<img {if isset($good['image'])}src="/includes/uploads/{$good['image']}_b.jpg"{/if} class="main_img" />
+			<a href="{if isset($good['image'])}/includes/uploads/{$good['image']}.jpg{else}#{/if}" rel="gallery" class="more">+</a>
 			{foreach $images item=image}
-				<a href="/includes/uploads/{$image['id']}.jpg" rel="gallery" class="hidden"></a>
+				<a href="{if isset($good['image'])}/includes/uploads/{$image['id']}.jpg{else}#{/if}" rel="gallery" class="hidden"></a>
 			{/foreach}
 		</div>
 		<div class="right">
-			<h1>{$good['name']}</h1>
+			<h1>{if isset($good['name'])}{$good['name']}{else}Название товара{/if}</h1>
 			<p class="description">
-				{$good['description']}
+				{if isset($good['description'])}{$good['description']}{else}Описание{/if}
 			</p>
 			<form id="card_form">
-				<span class="price">{$good['price']}€</span>
+				<span class="price">{if isset($good['price'])}{$good['price']}€{else}0€{/if}</span>
 				<button id="add_to_cart" class="white_button big_button" data="{$good['id']}">Add to cart</button>
 			</form>
 		</div>

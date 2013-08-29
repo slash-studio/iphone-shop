@@ -3,5 +3,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule (.*) /index.php [L]
 
+
 php_flag error_repritng on
 php_flag display_errors on

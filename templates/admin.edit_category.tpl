@@ -2,6 +2,7 @@
 {block name='links' append}
    <script src="/js/jquery.jstree.js"></script>
    <script src="/js/category.js"></script>
+   <script src="/js/admin_logout.js"></script>
    <link rel="stylesheet" type="text/css" href="/css/admin.css">
    {literal}
    <style type="text/css">
@@ -12,7 +13,7 @@
    {/literal}
 {/block}
 {block name='page'}
-   <p>HELLO!</p>
+    {include file='admin_menu.tpl'}
     <h2>Редактирование категорий</h2>
       <div id="category_tree">
         {$category_tree|default:''}
