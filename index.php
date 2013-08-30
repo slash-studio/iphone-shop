@@ -3,20 +3,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/container.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.Good.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.Images.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.Search.php';
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Category.php');
+
+$category = new Category;
 
 $request = explode('/', substr($_SERVER['REQUEST_URI'], 1));
 switch ($request[0]) {
    case '': case null: case false:
-      $goods = Good::get_all_displayed();
+      $goods = Good::Get_all_main_displayed();
       $smarty->assign('goods', $goods)
              ->assign('goods_count', count($goods));
-
-      $active = 'shop';
-      $smarty->assign('active', $active);
-
-      require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Category.php');
-      $category = new Category;
-      $smarty->assign('category_tree', $category->make_tree(false, true));
 
       $images = array();
       $slider_img_fold = opendir($_SERVER['DOCUMENT_ROOT'] . '/images/slider');
@@ -33,6 +29,7 @@ switch ($request[0]) {
       });
 
       $smarty->assign('slider_images', $images)
+             ->assign('category_tree', $category->make_tree(false, true))
              ->display('index.tpl');
       break;
 
@@ -46,15 +43,13 @@ switch ($request[0]) {
              ->assign('goods_count', count($goods));
 
       $active = 'shop';
-      $smarty->assign('active', $active);
-
-      require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Category.php');
-      $category = new Category;
-      $smarty->assign('category_tree', $category->make_tree(false, true))
+      $smarty->assign('active', $active)
+             ->assign('category_tree', $category->make_tree(false, true))
              ->display('index.tpl');
       break;
 
    case 'search':
+      $smarty->assign('category_tree', $category->make_tree(false, true));
       require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/search.php';
       break;
 

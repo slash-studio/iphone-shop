@@ -10,9 +10,8 @@
 	</nav>
 	<div id="search">
 	    <form method="get" action="/search/">
-		    <input type="text" id="q_text" name="q" autofocus placeholder="Поиск по сайту" value="{$search_query}" data="Поиск по сайту">
+		    <input type="text" id="q_text" name="q" autofocus placeholder="Поиск по сайту" value="{if isset($search_query)}{$search_query}{else}Поиск по сайту{/if}" data="Поиск по сайту">
 			<button id="search_button">s</button>
 	    </form>
 	</div>
->>>>>>> f
 </header>

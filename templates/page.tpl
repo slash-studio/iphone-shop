@@ -7,6 +7,7 @@
 	<div id="wrap">
 		{include file='header.tpl'}
 		<div id="main">
+			{if isset($category_tree)}<nav id="shop_menu">{$category_tree}</nav>{/if}
 			{block name='div.main'}{/block}
 		</div>
 	</div>

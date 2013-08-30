@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `goods` (
   `name` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `display` int(1) NOT NULL DEFAULT '1',
+  `main_display` int(1) NOT NULL DEFAULT '0',
   `old_price` varchar(30) NOT NULL,
   `price` varchar(30) NOT NULL,
   `category_id` int NOT NULL,

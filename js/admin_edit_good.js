@@ -24,7 +24,8 @@ $(function(){
 				g_category_id: $category_id,
 				g_description: $description,
 				g_keywords: $keywords,
-				g_display: $display
+				g_display: $display,
+				g_main_display: $main_display
 			}, 
 			function(data) {
 				alert(data);

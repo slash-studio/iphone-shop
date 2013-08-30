@@ -37,7 +37,7 @@
 	</script>
 {/block}
 {block name='div.main'}
-{if isset($category_tree)}<nav id="shop_menu">{$category_tree}</nav>{/if}
+
 <!--
 	<div class='container'>
 		<div id='slides'>
