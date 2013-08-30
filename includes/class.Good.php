@@ -44,11 +44,6 @@ class Good extends Entity
    {
       return Good::get_all_with_where('WHERE t.display = 1');
    }
-
-   public static function Get_all_main_displayed($value='')
-   {
-      return Good::get_all_with_where('WHERE t.display = 1 AND t.main_display = 1');
-   } 
    
    public static function Get_all_main_displayed()
    {
