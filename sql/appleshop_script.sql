@@ -45,12 +45,13 @@ CREATE TABLE subcategory (
 
 
 CREATE TABLE cart_order (
-  id        INT NOT NULL AUTO_INCREMENT,
-  name      VARCHAR(100) NOT NULL,
-  phone     VARCHAR(30)  NOT NULL,
-  email     VARCHAR(100) NOT NULL,
-  delivery  int(1) NOT NULL DEFAULT '0', -- 0 - Доставка не нужна, 1 - доставка необходима
-  address   VARCHAR(100) NOT NULL,
+  id            INT          NOT NULL AUTO_INCREMENT,
+  name          VARCHAR(100) NOT NULL,
+  phone         VARCHAR(30)  NOT NULL,
+  email         VARCHAR(100) NOT NULL,
+  delivery      int(1)       NOT NULL DEFAULT '0', -- 0 - Доставка не нужна, 1 - доставка необходима
+  delivery_type VARCHAR(15),
+  address       VARCHAR(100)     NOT NULL,
   PRIMARY KEY(id)
 );
 

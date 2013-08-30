@@ -4,9 +4,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/constants.php';
 
 class Mail
 {
-   public $site = 'http://igleb.com';
+   public $site = 'http://tortobello.ru';
    private $activation_url = '/includes/activation.php';
-   private $isLocalhost = true;
+   private $isLocalhost = false;
 
    public function getUniqueSignature($email, $login, $pass)
    {

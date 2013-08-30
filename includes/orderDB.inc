@@ -11,6 +11,7 @@
       public $email;
       public $address;
       public $delivery;
+      public $delivery_type;
 
       public $isExist = false;
 
@@ -32,7 +33,7 @@
       {
          if (!$email) return;
          global $db;
-         $query = 'SELECT id, name, phone, email, delivery, address FROM cart_order WHERE email = ?';
+         $query = 'SELECT id, name, phone, email, delivery, delivery_type, address FROM cart_order WHERE email = ?';
          $data = $db->query($query, array($email));
          $this->email = $email;
          $this->isExist = !empty($data);
@@ -45,16 +46,16 @@
       public function update()
       {
          global $db;
-         $query = 'UPDATE cart_order SET name=?, phone=?, email=?, delivery=?, address=? WHERE id = ?';
-         $new_values = array($this->name, $this->phone, $this->email, $this->delivery, $this->address, $this->id);
+         $query = 'UPDATE cart_order SET name=?, phone=?, email=?, delivery=?, delivery_type=?, address=? WHERE id = ?';
+         $new_values = array($this->name, $this->phone, $this->email, $this->delivery, $this->delivery_type, $this->address, $this->id);
          $db->query($query, $new_values, false);
       }
 
       public function insert()
       {
          global $db;
-         $query = 'INSERT INTO cart_order(name, phone, email, delivery, address) VALUES(?, ?, ?, ?, ?)';
-         $values = Array($this->name, $this->phone, $this->email, $this->delivery, $this->address);
+         $query = 'INSERT INTO cart_order(name, phone, email, delivery, delivery_type, address) VALUES(?, ?, ?, ?, ?, ?)';
+         $values = Array($this->name, $this->phone, $this->email, $this->delivery, $this->delivery_type, $this->address);
          $db->query($query, $values, false);
       }
 
@@ -64,8 +65,8 @@
          $last_id = -1;
          try {
             $db->link->beginTransaction();
-            $st = $db->link->prepare('INSERT INTO cart_order(name, phone, email, delivery, address) VALUES(?, ?, ?, ?, ?)');
-            $st->execute(Array($this->name, $this->phone, $this->email, $this->delivery, $this->address));
+            $st = $db->link->prepare('INSERT INTO cart_order(name, phone, email, delivery, delivery_type, address) VALUES(?, ?, ?, ?, ?, ?)');
+            $st->execute(Array($this->name, $this->phone, $this->email, $this->delivery, $this->delivery_type, $this->address));
             $last_id = $db->link->lastInsertId();
             $db->link->commit();
          } catch (Exception $e) {

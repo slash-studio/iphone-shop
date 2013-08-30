@@ -1,29 +1,44 @@
 $(function(){
    $('#checkout').click(function(){
-   	$name   	 = $('input#name').val();
-   	$phone  	 = $('input#tel').val();
-   	$email    = $('input#mail').val();
-   	$delivery = $('#delivery_yes').is(':checked');
-   	$address  = '';
-   	if $('#vlad_yes').is(':checked') {
-   		$address = 'Владивосток';
-   	}
-   	$address += $('#adress').val();
-   	alert($name);
-   	alert($phone);
-   	alert($email);
-   	alert($delivery);
-   	alert($address);;
-      // $.post(
-      //    '/includes/handlers/handler.Cart.php',
-      //    {  
-      //       mode: 'Checkout'
-      //    }, 
-      //    function(data) {
-      //       alert(data);
-      //       location.reload();
-      //    }
-      // );
+      $name          = $('input#name').val();
+      $phone         = $('input#tel').val();
+      $email         = $('input#mail').val();
+      $delivery      = $('#delivery_yes').is(':checked');
+      $address       = '';
+      $delivery_type = '';
+      $from_vlad     = false;
+      if ($('#vlad_yes').is(':checked')) {
+         $address = 'Владивосток';
+         $from_vlad = true;
+      } else {
+         $('#delivery_section input').each(function(i,elem) {
+            if ($(elem).is(':checked')) {
+               $delivery_type = $(elem).val();
+            }
+         });
+      }
+      $address += $('#adress').val();
+      // alert($name);
+      // alert($phone);
+      // alert($email);
+      // alert($delivery);
+      $.post(
+         '/includes/handlers/handler.Cart.php',
+         {  
+            mode:          'Checkout',
+            name:          $name,
+            phone:         $phone,
+            email:         $email,
+            address:       $address,
+            delivery:      $delivery,
+            delivery_type: $delivery_type,
+            from_vlad:     $from_vlad
+         }, 
+         function(data) {
+            alert(data);
+            location.reload();
+         }
+      );
       return false;
    });
 });

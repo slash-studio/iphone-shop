@@ -34,19 +34,20 @@
 
       public function Checkout()
       {
-         $_POST['name'] = 'Chuck Noris';
-         $_POST['phone'] = '2123321';
-         $_POST['email'] = 'some@exmaple.com';
-         $_POST['address'] = 'Vladivostok, Russia';
-         $_POST['delivery'] = true;
+         // $_POST['name'] = 'Chuck Noris';
+         // $_POST['phone'] = '2123321';
+         // $_POST['email'] = 'some@exmaple.com';
+         // $_POST['address'] = 'Vladivostok, Russia';
+         // $_POST['delivery'] = true;
 
          $mail = new Mail();
          $order_db = new OrderDB();
-         $order_db->name     = $_POST['name'];
-         $order_db->phone    = $_POST['phone'];
-         $order_db->email    = $_POST['email'];
-         $order_db->address  = $_POST['address'];
-         $order_db->delivery = $_POST['delivery'];
+         $order_db->name          = $_POST['name'];
+         $order_db->phone         = $_POST['phone'];
+         $order_db->email         = $_POST['email'];
+         $order_db->address       = $_POST['address'];
+         $order_db->delivery      = $_POST['delivery'];
+         $order_db->delivery_type = $_POST['delivery_type'];
          $last_id = $order_db->insert_with_last_id();
 
          global $smarty;
@@ -60,7 +61,8 @@
                           $smarty->fetch('cart_email.tpl'),
                           'director@igleb.com',
                           'от Глебаса');
-         // $this->Clear();
+         $this->Clear();
+         echo 'Заказ принят!';
       }
       
       public function Remove_good()

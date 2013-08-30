@@ -20,16 +20,17 @@
 			<input type="radio" name="vlad" id="vlad_yes" value="1" checked="checked" /><label for="vlad_yes">Да</label>
 			<input type="radio" name="vlad" id="vlad_no" value="0" /><label for="vlad_no">Нет</label>
 			<div id="delivery_section">
-				<label for="adress">Ваш адресс *</label>
-				<textarea name="adress" id="adress"></textarea>
 				<label>Тип доставки *</label>
-				<input type="radio" name="delivery_type" id="ems" value="d_ems" /><label for="d_ems">EMS</label>
-				<input type="radio" name="delivery_type" id="emd1" value="d_emd1" /><label for="d_emd1">emd1</label>
-				<input type="radio" name="delivery_type" id="d_govno" value="d_govno" /><label for="d_govno">Почта россии</label>
-				<button id="checkout">Подтвердить</button>
+				<input type="radio" name="delivery_type" id="ems" value="EMS" /><label for="d_ems">EMS</label>
+				<input type="radio" name="delivery_type" id="emd1" value="emd1" /><label for="d_emd1">emd1</label>
+				<input type="radio" name="delivery_type" id="d_govno" value="Почта россии" /><label for="d_govno">Почта россии</label>
 			</div>
 			<div id="no_delivery">
 				Доставка бесплатна!
+			</div>
+			<div id="end_section">
+				<label for="adress">Ваш адрес *</label>
+				<textarea name="adress" id="adress"></textarea>
 				<button id="checkout">Подтвердить</button>
 			</div>
 		</div>
