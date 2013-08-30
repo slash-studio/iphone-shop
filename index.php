@@ -78,6 +78,7 @@ switch ($request[0]) {
       $smarty->assign('active', 'shop')
              ->assign('goods', $goods)
              ->assign('goods_count', count($goods));
+      // $smarty->assign('category_tree', $category->make_tree(false, true));
       $smarty->display('shop.tpl');
       break;
 

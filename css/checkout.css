@@ -1,0 +1,42 @@
+#order_form {
+	margin-top: 10px;
+	width: 800px;
+	border: 1px #bbb solid;
+	text-align: left;
+	padding: 20px;
+}
+#order_form h1 {
+	font-size: 19px;
+	margin-bottom: 10px;
+}
+#order_form label {
+	display: block;
+	margin: 5px 0;
+}
+#order_form input {
+	height: 15px;
+	padding: 3px;
+	border: 1px #bbb solid;
+}
+#order_form textarea {
+	padding: 3px;
+	border: 1px #bbb solid;
+}
+#order_form label.right {
+	display: inline-block;
+	margin-left: 3px;	
+}
+#vlad_section, #delivery_section, #no_delivery {
+	margin-top: 10px;
+	display: none;
+}
+#order_form small {
+	display: block;
+	font-style: italic;
+	color: #777;
+	margin: 9px 0;
+}
+#order_form button {
+	display: block;
+	margin: 30px 0;
+}
