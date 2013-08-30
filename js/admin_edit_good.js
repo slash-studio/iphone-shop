@@ -4,7 +4,7 @@ $(function(){
 		$old_price = $('#g_old_price').val();
 		$price = $('#g_price').val();
 		$description = $('#g_description').val();
-		$category_id = $('#g_category_id').val();
+		$category_id = $('#g_category_id option:selected').val();
 		$keywords = $('#g_keywords').val();
 		$main_display = $('#g_main_display').is(':checked') | 0;
 		$display = $('#g_display').is(':checked') | 0;
