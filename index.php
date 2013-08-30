@@ -75,6 +75,7 @@ switch ($request[0]) {
 
    case 'shop':
       $goods = Good::get_all_displayed();
+	  $smarty->assign('category_tree', $category->make_tree(false, true));
       $smarty->assign('active', 'shop')
              ->assign('goods', $goods)
              ->assign('goods_count', count($goods));
