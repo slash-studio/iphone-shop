@@ -57,6 +57,10 @@ switch ($request[0]) {
       require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/admin.php';
       break;
 
+   case 'checkout':
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/checkout.php';
+      break;
+
    case 'card':
       require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/card.php';
       break;

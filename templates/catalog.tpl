@@ -10,7 +10,7 @@
                            <img src="/includes/uploads/{$goods[$i*3 + $j]['image']}_m.jpg" />
                         </a>
                         <h1><a href="/card/{$goods[$i*3 + $j]['id']}">{$goods[$i*3 + $j]['name']}</a></h1>
-                        <span class="price">{$goods[$i*3 + $j]['price']} .руб</span>
+                        <span class="price">{$goods[$i*3 + $j]['price']} руб.</span>
                      </article>
                   {/if}
                </td>

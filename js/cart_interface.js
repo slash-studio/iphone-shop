@@ -30,19 +30,6 @@ $(function() {
       );
       return false;
    });
-   $('#checkout').click(function(){
-      $.post(
-         '/includes/handlers/handler.Cart.php',
-         {  
-            mode: 'Checkout'
-         }, 
-         function(data) {
-            alert(data);
-            location.reload();
-         }
-      );
-      return false;
-   });
    $('td.quantity button').click(function(){
       $count = $(this).siblings('input').val();
       $count = $count == 0 ? 1 : $count;
