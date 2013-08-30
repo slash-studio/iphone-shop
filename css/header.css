@@ -36,4 +36,7 @@ header nav ul li a.active {
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
+	color: transparent;
+	background: transparent url(/images/search.png) center center no-repeat;
+	border: 0;
 }
