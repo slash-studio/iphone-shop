@@ -45,5 +45,5 @@
          </tr>
    </table>
    <button id="clear" class="white_button big_button">Удалить все</button>
-   <a href="/includes/checkout.php" id="checkout" class="white_button big_button">Заказать</button>
+   <a href="/includes/checkout.php" id="checkout" class="white_button big_button">Заказать</a>
 </div>
