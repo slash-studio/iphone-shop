@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 CREATE DATABASE apple_shop DEFAULT CHARSET utf8;
 
 use apple_shop;
