@@ -33,7 +33,9 @@ SET time_zone = "+00:00";
 CREATE TABLE category (
   id    INT NOT NULL AUTO_INCREMENT,
   name  VARCHAR(40) NOT NULL,
-  PRIMARY KEY(id)
+  alias VARCHAR(40) NOT NULL,
+  PRIMARY KEY(id),
+  UNIQUE KEY(alias)
 );
 
 CREATE TABLE subcategory (
@@ -92,13 +94,13 @@ CREATE TABLE IF NOT EXISTS `images` (
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
-INSERT INTO category(name) VALUES
-   ('iPhone'),
-   ('iPod'),
-   ('iPad'),
-   ('Аксессуары'),
-   ('Наушники'),
-   ('Прочее');
+INSERT INTO category(name, alias) VALUES
+   ('iPhone', 'iphone'),
+   ('iPod', 'ipod'),
+   ('iPad', 'ipad'),
+   ('Аксессуары', 'accessory'),
+   ('Наушники', 'headphones'),
+   ('Прочее', 'other');
 
 INSERT INTO subcategory(id, parent_id) VALUES
    (1, 1),

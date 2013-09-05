@@ -11,6 +11,7 @@ $(document).ready(function() {
       $box.find('button[value="change"]').prop('value', 'add').text('Добавить');
       $box.find('#in_change').prop('disabled', true);
       $box.find('input#category').val('');
+      $box.find('input#alias').val('');
    });
 
    $('#edit-box #in_change').change(function() {
@@ -57,6 +58,8 @@ $(document).on('click', '#category_tree ul li', function(e) {
    $editBox.find('#in_add').removeProp('checked');
    $editBox.find('#in_change').prop('checked', 'checked');
    $editBox.find('#in_id').css('display', 'block');
+   var a_id = $(this).find('a').attr('id');
+   var alias = (a_id.substring(a_id.indexOf('_') + 1));
    var li_id = $(this).attr('id');
    var id = (li_id.substring(li_id.indexOf('_') + 1));
    var p_id = $($(this).parents().get(1)).attr('id');
@@ -70,6 +73,7 @@ $(document).on('click', '#category_tree ul li', function(e) {
    }
    $('#edit-box input#category').val($("select#category_id option[value='"+id+"']").text());
    $('#edit-box input#id').val(id);
+   $('#edit-box input#alias').val(alias);
    $('#edit-box').find('button[value="add"]').text('Редактировать');
    $('#edit-box').find('button[value="add"]').prop('value', 'change');
    $('#edit-box').find('button[value="delete"]').css('display', 'inline-block');
@@ -87,17 +91,23 @@ $(document).on('submit', 'form.edit-form', function() {
       var id    = (li_id.substring(li_id.indexOf('_') + 1));
       treeOpen.push(id);
    });
-   $this     = $(this);
-   var pid   = $this.find('select#category_id option:selected').val();
-   var aid   = $this.find('input[name="id"]').val();
-   var aname = $('#edit-box input#category').val();
+   $this      = $(this);
+   var pid    = $this.find('select#category_id option:selected').val();
+   var aid    = $this.find('input[name="id"]').val();
+   var aname  = $.trim($('#edit-box input#category').val());
+   var aalias = $.trim($('#edit-box input#alias').val());
+   if (aname == '' || aalias == '') {
+      alert('Вы некорректно заполнили форму!');
+      return;
+   }
    $.post(
          "/admin/edit_category.php",
          {
             type        : editType,
             "id"        : aid,
             "parent_id" : pid,
-            "name"      : aname
+            "name"      : aname,
+            "alias"     : aalias
          },
          function(data) {
             if (data.result) {

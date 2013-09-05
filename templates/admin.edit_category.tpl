@@ -33,6 +33,8 @@
       </select>
     <label for="category">Название категории</label>
       <input type="text" name="category" id="category">
+    <label for="alias">Адрес категории</label>
+      <input type="text" name="alias" id="alias">
       <input type="text" name="id" id="id" style="display: none">
     <button type="submit" name="submit" value="add">Добавить</button>
     <button type="submit" name="submit" value="delete" style="display: none;">Удалить</button>

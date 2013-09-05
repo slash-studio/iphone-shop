@@ -53,7 +53,7 @@
 							</a>
 						</td>
 						<td class="name">
-							<a href="/includes/card.php?id={$good['id']}">{$good['name']}</a>
+							<a href="/card/{$good['id']}">{$good['name']}</a>
 						</td>
 						<td>
 							{$categories[$good['category_id']]}

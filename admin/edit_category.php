@@ -1,5 +1,6 @@
 <?php
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Category.php');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/check_pass.php';
 
 
 $category = new Category();
@@ -7,10 +8,10 @@ try {
    if (isset($_POST['type'])) {
       switch ($_POST['type']) {
          case 'add':
-            $result['result'] = $category->add($_POST['parent_id'], $_POST['name']);
+            $result['result'] = $category->add($_POST['parent_id'], $_POST['name'], $_POST['alias']);
             break;
          case 'change':
-            $result['result'] = $category->edit($_POST['id'], $_POST['parent_id'], $_POST['name']);
+            $result['result'] = $category->edit($_POST['id'], $_POST['parent_id'], $_POST['name'], $_POST['alias']);
             break;
          case 'delete':
             $result['result'] = $category->delete($_POST['id'], $_POST['parent_id']);

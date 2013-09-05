@@ -27,12 +27,12 @@
          return $result;
       }
 
-      public function edit($id, $parent_id, $name)
+      public function edit($id, $parent_id, $name, $alias)
       {
          global $db;
-         $st = $db->link->prepare('UPDATE category SET name=? WHERE id=?');
-         if (!$st->execute(Array($name, $id))) {
-            throw new Exception("Не получается обновить название категории.");
+         $st = $db->link->prepare('UPDATE category SET name=?, alias=? WHERE id=?');
+         if (!$st->execute(Array(trim($name), strtolower(trim($alias)), $id))) {
+            throw new Exception("Возникла ошибка при редактировании записи!");
             return false;
          }
          global $main_categories;
@@ -46,13 +46,13 @@
          return $st->execute(Array($p_id, $id));
       }
 
-      public function add($parent_id, $name)
+      public function add($parent_id, $name, $alias)
       {
          global $db;
          try {
             $db->link->beginTransaction();
-            $st = $db->link->prepare('INSERT INTO category(name) VALUES(?)');
-            $st->execute(Array($name));
+            $st = $db->link->prepare('INSERT INTO category(name, alias) VALUES(?, ?)');
+            $st->execute(Array(trim($name), strtolower(trim($alias))));
             $st = $db->link->prepare("INSERT INTO $this->tblName(id, parent_id) VALUES(?, ?)");
             $id = $db->link->lastInsertId();
             $p_id = $parent_id == -1 ? $id : $parent_id;
@@ -148,10 +148,11 @@
                   $sub_trees[$v['parent_id']][] = $v['id'];
                }
             }
-            $category = $db->query('SELECT id, name FROM category');
+            $category = $db->query('SELECT id, name, alias FROM category');
             $names  = array();
             foreach ($category as $k => $v) {
-               $names[$v['id']][] = $v['name'];
+               $names[$v['id']]['name'] = $v['name'];
+               $names[$v['id']]['alias'] = $v['alias'];
             }
             $leaf = array();
             $buildTree = function(&$t, $id) use(&$buildTree, &$leaf, $sub_trees, $names) {
@@ -164,7 +165,7 @@
                   }
                }
                if (!$cnt) {
-                  $leaf[$id] = $names[$id][0];
+                  $leaf[$id] = $names[$id]['name'];
                }
             };
             foreach ($vertex as $v) {
@@ -176,12 +177,13 @@
                }
                $result = "<ul>";
                foreach ($t as $k => $sub) {
-                  $href_str = $isTopMenu ? "/category/$k" : 'javascript:void(0)';
-                  $new_node = "<li id='category_$k'><a href='$href_str' class='parent'>" . $names[$k][0] . "</a>";
+               	$a_id = 'alias_' . $names[$k]['alias'];
+                  $href_str = $isTopMenu ? "/category/" . $names[$k]['alias'] : 'javascript:void(0)';
+                  $new_node = "<li id='category_$k'><a id='$a_id' href='$href_str' class='parent'>" . $names[$k]['name'] . "</a>";
                   $next_node = $buildTree($sub);
                   $new_node .= $next_node;
                   if ($next_node == '') {
-                     $result .= "<li id='category_$k'><a href='$href_str'>" . $names[$k][0] . "</a>";
+                     $result .= "<li id='category_$k'><a id='$a_id' href='$href_str'>" . $names[$k]['name'] . "</a>";
                   } else {
                      $result .= $new_node;
                   }

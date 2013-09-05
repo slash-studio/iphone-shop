@@ -35,7 +35,7 @@ switch ($request[0]) {
 
    case 'category':
       if (isset($request[1]) && !empty($request[1])) {
-         $goods = Search::get_by_category(intval($request[1]));
+         $goods = Search::get_by_category_alias($request[1]);
       } else {
          header("Location: /");
       }

@@ -7,11 +7,14 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/connect.php');
 class Search 
 {
    
-   public static function get_by_category($category_id)
+   public static function get_by_category_alias($alias)
    {
       $goods = Array();
       try {
          global $db;
+         $data = $db->query('SELECT id FROM category WHERE alias = ?', Array($alias));
+         if (empty($data)) throw new Exception("");
+         $category_id = $data[0]['id'];
          $new_arr = Good::get_all_with_where(" WHERE t.category_id = $category_id");
          foreach ($new_arr as $arr) {
             $goods[] = $arr;
@@ -21,7 +24,8 @@ class Search
          
          foreach ($result as $num => $id) {
             if ($id['id'] == $category_id) continue;
-            $new_arr = self::get_by_category($id['id']);
+            $data = $db->query('SELECT alias FROM category WHERE id = ?', Array($id['id']));
+            $new_arr = self::get_by_category_alias($data[0]['alias']);
             foreach ($new_arr as $arr) {
                $goods[] = $arr;
             }
