@@ -21,3 +21,8 @@ form select {
 body {
 	margin: 20px;
 }
+.green {
+	background: green;
+	border: 0;
+	color: white;
+}

@@ -1,0 +1,14 @@
+#delivery {
+	margin-top: 100px;
+	text-align: left;
+	margin-bottom: 150px;
+}
+#right_photo {
+	float: right;
+	margin-left: 70px;
+}
+
+#delivery p {
+	margin-bottom: 10px;
+	text-indent: 15px;
+}

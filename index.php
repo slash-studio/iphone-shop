@@ -10,8 +10,6 @@ $category = new Category;
 $request = explode('/', substr($_SERVER['REQUEST_URI'], 1));
 switch ($request[0]) {
    case '': case null: case false:
-      // require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/handlers/handler.Cart.php');
-      // $cart_Handler->Checkout();
       $goods = Good::Get_all_main_displayed();
       $smarty->assign('goods', $goods)
              ->assign('goods_count', count($goods));
@@ -64,11 +62,20 @@ switch ($request[0]) {
       break;
 
    case 'card':
+	  $smarty->assign('category_tree', $category->make_tree(false, true));
       require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/card.php';
       break;
 
    case 'cart':
       require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/cart.php';
+      break;
+	  
+   case 'contacts':
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/contacts.php';
+      break;
+	  
+   case 'delivery':
+      require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/delivery.php';
       break;
 
    case 'cart_confirm':

@@ -5,3 +5,7 @@
 	font-size: 100%;
 	text-decoration: none;
 }
+#contacts span.phone {
+	display: block;
+	margin: 20px 0 50px;
+}

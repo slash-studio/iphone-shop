@@ -1,6 +1,7 @@
 {extends file='page.tpl'}
 {block name='links' append}
 	<link href="/css/card.css" rel="stylesheet" />
+	<link href="/css/shop.css" rel="stylesheet" />
 	<script src="/js/cart_interface.js"></script>
 	<link href="/colorbox/colorbox.css" rel="stylesheet" />
 	<script src="/colorbox/jquery.colorbox-min.js"></script>
@@ -27,6 +28,7 @@
 				{if isset($good['description'])}{$good['description']}{else}Описание{/if}
 			</p>
 			<form id="card_form">
+				<span class="old_price">{if isset($good['old_price'])}{$good['old_price']} руб.{/if}</span>
 				<span class="price">{if isset($good['price'])}{$good['price']} руб.{else}0 руб.{/if}</span>
 				<button id="add_to_cart" class="white_button big_button" data="{$good['id']}">Add to cart</button>
 			</form>

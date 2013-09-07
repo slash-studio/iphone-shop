@@ -42,7 +42,7 @@
 			</div>
 		</div>
 		<div class="block">
-			<button class="white_button big_button save" id="{$mode}" data="{$good['id']}">Сохранить</button>
+			<button class="white_button big_button green save" id="{$mode}" data="{$good['id']}">Сохранить</button>
 		</div>
 	</form>
 {/block}

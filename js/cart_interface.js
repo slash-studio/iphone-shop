@@ -13,7 +13,7 @@ $(function() {
             g_id: $id,
          }, 
          function(data) {
-            alert(data);
+            $.colorbox({html:"<div style='border: 1px black solid; width: 400px; text-align: center; padding: 50px 0;'>Товар добавлен в корзину</div>"});
          }
       );
       return false;

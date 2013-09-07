@@ -6,7 +6,6 @@
 	margin: 0 auto;
 	text-align: center;
 	border-collapse: collapse;
-	font-family: Helvetica, Arial, sans-serif;
 	width: 800px;
 }
 #goods table td {
@@ -25,10 +24,6 @@
 #goods table tr.head td {
 	margin-bottom: 10px;
 }
-button.delete {
-	background: red;
-	color: white;
-}
 #add_new {
 	display: inline-block;
 	margin-bottom: 15px;
@@ -36,8 +31,7 @@ button.delete {
 #edit-box input[type='text'], #edit-box select {
    width: 220px;
 }
-#category_tree ul{
-   font-family: "Helvetica CY", "Nimbus Sans L";
+#category_tree ul {
    font-size: 10.2pt;
 }
 div#tbl tr {
@@ -49,9 +43,6 @@ div.img-box {
    position: absolute;
    /*left: -1px;*/
 }
-#edit-box {
-    width: 808px;
-}
 form.edit-form input[type="button"], form.edit-form input[type="submit"] {
     font-size: 12px;
     width: 100%;
@@ -60,24 +51,21 @@ form.edit-form select {
     font-size: 12px;
 }
 form.edit-form {
-    margin: 5px;
     text-align: left;
-}
-form.edit-form fieldset {
-    padding: 5px;
 }
 form.edit-form label, form.edit-form input {
     display: block;
 }
 form.edit-form button {
     display: inline-block;
-    width: 100px;
 }
 form.edit-form legend {
     font-style: italic;
 }
-form.edit-form input {
+form.edit-form input, form.edit-form select {
     margin: 3px 0;
+	border: 1px black solid;
+	padding: 3px;
 }
 form.add h1 {
     font-size: 13px;
@@ -99,9 +87,53 @@ div#edit > div {
     width: 220px;
 }
 #edit ul {
-    font-family: "Helvetica CY","Nimbus Sans L";
     font-size: 10.2pt;
 }
+nav {
+	margin: 0 auto;
+	text-align: center;
+	margin: 20px 0 50px;
+}
+nav li {
+	display: inline-block;
+	margin: 0 20px;
+}
 a.active {
-  color: #FF0000 !important;
+  color: #FF0000;
+}
+#categories_edit {
+	margin: 0 auto;
+	width: 250px;
+	border: 1px #bbb solid;
+	padding: 20px;
+}
+#categories_edit h1 {
+	font-size: 130%;
+	margin-bottom: 20px;
+}
+#category_tree {
+	margin-bottom: 20px;
+}
+#edit-box legend {
+	font-size: 120%;
+	margin: 7px 0;
+}
+#edit-box form.edit-form {
+	margin-top: 20px;
+}
+#edit-box form.edit-form label {
+	margin: 5px 0;
+}
+#edit-box form.edit-form button {
+	margin-top: 10px;
+}
+.green {
+	background: green;
+	border: 0;
+	color: white;
+}
+.red {
+	background: red;
+	border: 0;
+	color: white;
 }

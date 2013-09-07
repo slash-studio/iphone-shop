@@ -20,7 +20,6 @@
 	margin-bottom: 10px;
 }
 #card div.right {
-	font-family: Helvetica, Arial, sans-serif;
 	margin-left: 420px;
 	min-width: 250px;
 }
@@ -41,8 +40,17 @@
 #card div.right span.price {
 	font-size: 120%;
 	display: inline-block;
-	margin: 25px 25px 0 0;
+	margin: 15px 25px 0 0;
 }
 #card a.hidden {
 	display: none;
+}
+#add_to_cart {
+}
+#card span.old_price {
+	color: red;
+	text-decoration: line-through;
+	display: block;
+	font-size: 140%;
+	margin-top: 25px;
 }

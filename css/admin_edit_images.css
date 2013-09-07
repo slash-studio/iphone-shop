@@ -19,7 +19,7 @@ body {
 	display: inline-block;
 }
 #status_photos {
-	font-family:Arial; padding:5px;
+	padding:5px;
 }
 #photos_div div.in_image button {
 	position: absolute;

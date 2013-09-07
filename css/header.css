@@ -1,6 +1,6 @@
 header {
 	padding: 20px;
-	height: 52px;
+	height: 93px;
 }
 #header_logo {
 	float: left;
@@ -15,17 +15,16 @@ header nav ul li {
 }
 header nav ul li a {
 	display: inline-block;
-	font-family: Helvetica, Arial, sans-serif;
 	font-size: 15px;
 	text-decoration: none;
-	padding: 20px 8px;
+	padding: 40px 15px;
 }
 header nav ul li a.active {
 	color: red;
 }
 #search {
 	float: right;
-	margin-top: 15px;
+	margin-top: 37px;
 }
 #q_text {
 	height: 15px;

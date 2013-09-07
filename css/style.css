@@ -19,11 +19,14 @@ blockquote,q { quotes:"" ""; }
 a { color: inherit; }
 
 body {
-	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	
 	color: black;
 	font-size: 90%;
 }
 
+body * {
+	font-family: 'Lucida Grande', Verdana, Arial, sans-serif;
+}
 .white_button {
 	padding: 3px;
 	border: 1px black solid;

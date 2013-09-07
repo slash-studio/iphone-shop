@@ -11,7 +11,7 @@
 		{include file='admin_menu.tpl'}
 		<div id="main_area">
 			<article id="goods">
-				<a href="/admin/edit_good.php" id="add_new" class="white_button big_button">Добавить товар</a>
+				<a href="/admin/edit_good.php" id="add_new" class="white_button green big_button">Добавить товар</a>
 				<table>
 					<tr class="head">
 						<td>
@@ -68,7 +68,7 @@
 							<a href="/admin/edit_good.php?id={$good['id']}" class="white_button edit">Изменить</a>
 						</td>
 						<td>
-							<button id="d{$good['id']}" class="delete white_button">Удалить</button>
+							<button id="d{$good['id']}" class="delete red white_button">Удалить</button>
 						</td>
 					</tr>
 					{/foreach}
