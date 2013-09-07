@@ -30,7 +30,7 @@
 			<form id="card_form">
 				<span class="old_price">{if isset($good['old_price'])}{$good['old_price']} руб.{/if}</span>
 				<span class="price">{if isset($good['price'])}{$good['price']} руб.{else}0 руб.{/if}</span>
-				<button id="add_to_cart" class="white_button big_button" data="{$good['id']}">Add to cart</button>
+				<button id="add_to_cart" class="white_button big_button" data="{$good['id']}">Добавить в корзину</button>
 			</form>
 		</div>
 	</article>
