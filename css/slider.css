@@ -1,11 +1,16 @@
 #slides {
-  display: none
+  display: none;
 }
 
 #slides .slidesjs-navigation {
   margin-top:5px;
 }
-
+#slides .slidesjs-control {
+	border-radius: 20px;
+}
+#slides .slidesjs-container img {
+	border-radius: 20px;
+}
 a.slidesjs-next,
 a.slidesjs-previous,
 a.slidesjs-play,
@@ -102,6 +107,5 @@ a:hover.slidesjs-stop {
 }
 
 div.container {
-	
 	margin: 50px auto;
 }

@@ -8,7 +8,7 @@
 		{literal}
 		$(function() {
 		  $('#slides').slidesjs({
-			width: 738,
+			width: 1160,
 			height: 286,
 			play: {
 			  active: true,
@@ -30,13 +30,13 @@
 	</script>
 {/block}
 {block name='div.main'}
-    <div class="container" style="width: 738px !important; height: 286px !important;">
+	<div class="container" style="width: 1160px !important; height: 286px !important;">
 		<div id="slides">
-		    <img src="/images/slider/example-slide-1.jpg" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
-		    <img src="/images/slider/example-slide-2.jpg" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
-		    <img src="/images/slider/example-slide-3.jpg" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
-		    <img src="/images/slider/example-slide-4.jpg" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
+			<img src="/images/slider/example-slide-1.jpg" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/">
+			<img src="/images/slider/example-slide-2.jpg" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/">
+			<img src="/images/slider/example-slide-3.jpg" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/">
+			<img src="/images/slider/example-slide-4.jpg" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/">
 		</div>
-    </div>
+	</div>
 	{include file='catalog.tpl'}
 {/block}
