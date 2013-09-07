@@ -42,7 +42,7 @@ $(function(){
             from_vlad:        $from_vlad
          }, 
          function(data) {
-            // alert(data);
+            alert(data);
             alert(data.message);
             if (data.result) {
                location.reload();

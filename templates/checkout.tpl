@@ -2,6 +2,8 @@
 {block name='links' append}
 	<link href="/css/checkout.css" rel="stylesheet" />
 	<script src="/js/checkout.js"></script>
+	<link href="/colorbox/colorbox.css" rel="stylesheet" />
+	<script src="/colorbox/jquery.colorbox-min.js"></script>
 {/block}
 {block name='div.main'}
 	<section id="order_form">

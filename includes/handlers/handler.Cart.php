@@ -80,7 +80,6 @@
             $result['result'] = false;
             $result['message'] = $e->getMessage();
          }
-
          echo json_encode($result);
       }
 
