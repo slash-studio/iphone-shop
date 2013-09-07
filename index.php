@@ -3,7 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/container.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.Good.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.Images.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.Search.php';
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/class.Category.php');
+require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/class.Category.php';
 
 $category = new Category;
 
@@ -42,10 +42,10 @@ switch ($request[0]) {
       $smarty->assign('goods', $goods)
              ->assign('goods_count', count($goods));
 
-      $active = 'shop';
+      $active = 'catalog';
       $smarty->assign('active', $active)
              ->assign('category_tree', $category->make_tree(false, true))
-             ->display('index.tpl');
+             ->display('shop.tpl');
       break;
 
    case 'search':
@@ -82,10 +82,10 @@ switch ($request[0]) {
       require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/cart_confirm.php';
       break;
 
-   case 'shop':
+   case 'catalog':
       $goods = Good::get_all_displayed();
-	  $smarty->assign('category_tree', $category->make_tree(false, true));
-      $smarty->assign('active', 'shop')
+      $smarty->assign('category_tree', $category->make_tree(false, true));
+      $smarty->assign('active', 'catalog')
              ->assign('goods', $goods)
              ->assign('goods_count', count($goods));
       // $smarty->assign('category_tree', $category->make_tree(false, true));

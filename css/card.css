@@ -40,12 +40,14 @@
 #card div.right span.price {
 	font-size: 120%;
 	display: inline-block;
-	margin: 15px 25px 0 0;
+	margin: 15px 0 0 0;
 }
 #card a.hidden {
 	display: none;
 }
 #add_to_cart {
+	display: block;
+	margin-top: 15px;
 }
 #card span.old_price {
 	color: red;

@@ -31,11 +31,13 @@
 {/block}
 {block name='div.main'}
 	<div class="container" style="width: 1160px !important; height: 286px !important;">
+		{if isset($slider_images)}
 		<div id="slides">
 			{foreach from=$slider_images item=img}
 				<img src="/images/slider/{$img}" />
 			{/foreach}
 		</div>
+		{/if}
 	</div>
 	{include file='catalog.tpl'}
 {/block}

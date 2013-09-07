@@ -31,7 +31,7 @@ $(document).ready(function() {
          "animation" : 180
       },
       "themes" : {
-         "theme" : "default",
+         "theme" : "apple",
          "icons" : false
       },
       "plugins"  : ["themes", "html_data", "sort"]

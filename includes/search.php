@@ -11,5 +11,5 @@ if (isset($_GET['q'])) {
 $smarty->assign('active', 'shop')
        ->assign('goods', $goods)
        ->assign('goods_count', count($goods))
-       ->display('index.tpl');      
+       ->display('shop.tpl');      
 ?>

@@ -46,11 +46,11 @@
          $result = Array('result' => true, 'message' => 'Заказ принят!');
 
          try {
-            if (!Validate::is_Email($_POST['email'])) {
-               throw new Exception("Указан неверный email!");
-            }
             if (!Validate::is_Phone($_POST['phone'])) {
                throw new Exception("Указан неверный номер телефона!");
+            }
+            if (!Validate::is_Email($_POST['email'])) {
+               throw new Exception("Указан неверный email!");
             }
             $_POST['delivery_type_id'] = !empty($_POST['delivery_type_id']) ? $_POST['delivery_type_id'] : null;
             $mail = new Mail();
@@ -79,7 +79,6 @@
          } catch (Exception $e) {
             $result['result'] = false;
             $result['message'] = $e->getMessage();
-            echo $e->getMessage();
          }
 
          echo json_encode($result);
