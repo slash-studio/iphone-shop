@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/constants.php';
 
 class Mail
 {
-   public $site = 'http://tortobello.ru';
+   public $site = 'http://igleb.com';
    private $activation_url = '/includes/activation.php';
    private $isLocalhost = true;
 

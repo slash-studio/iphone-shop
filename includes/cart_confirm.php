@@ -6,7 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/connect.php';
 
 $isError = true;
 
-if (isset($_GET['h']) && isset($_GET['m'])) {
+if (isset($_GET['h']) && isset($_GET['m']) && isset($_GET['cn'])) {
    // echo 'is exist!';
    try {
       $data = $db->query('SELECT id FROM cart_order WHERE email = ?', Array($_GET['m']));  
@@ -21,6 +21,7 @@ if (isset($_GET['h']) && isset($_GET['m'])) {
       }
    }
    if (!$isError) {
+      $isError = $cart_Handler->Confirm($_GET['cn']);
       // $order_db
       //здесь нужно что-то сделать с заказом(отправить его или сохранить в базе для дальнейшего просмотра)
    }
@@ -29,7 +30,8 @@ if (isset($_GET['h']) && isset($_GET['m'])) {
    // header("Location:");
 }
 
-$smarty->assign('active', 'cart')
-       ->assign('isError', $isError)
-       ->display('cart_confirm.tpl');
+// $smarty->assign('active', 'cart')
+//        ->assign('isError', $isError)
+//        ->display('cart_confirm.tpl');
+$smarty->display('cart_admin_email.tpl');
 ?>

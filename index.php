@@ -10,6 +10,8 @@ $category = new Category;
 $request = explode('/', substr($_SERVER['REQUEST_URI'], 1));
 switch ($request[0]) {
    case '': case null: case false:
+      // require_once ($_SERVER['DOCUMENT_ROOT'] . '/includes/handlers/handler.Cart.php');
+      // $cart_Handler->Checkout();
       $goods = Good::Get_all_main_displayed();
       $smarty->assign('goods', $goods)
              ->assign('goods_count', count($goods));

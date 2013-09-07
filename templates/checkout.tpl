@@ -24,9 +24,13 @@
 				<textarea name="adress" id="adress" cols="30" rows="3"></textarea>
 				<div id="delivery_section">
 					<label>Тип доставки *</label>
-					<input type="radio" name="delivery_type" id="ems" value="d_ems" /><label for="d_ems" class="right">EMS</label>
-					<input type="radio" name="delivery_type" id="emd1" value="d_emd1" /><label for="d_emd1" class="right">emd1</label>
-					<input type="radio" name="delivery_type" id="d_govno" value="d_govno" /><label for="d_govno" class="right">Почта россии</label>
+					{if !($delivery_types|@count == 0)}
+						{foreach from=$delivery_types item=type}
+							<input type="radio" name="delivery_type" id="dtype_{$type.id}" value="{$type.name}" /><label for="dtype_{$type.id}" class="right">{$type.name}</label>
+						{/foreach}
+					{else}
+						<p style="font-weight: bold">Невозможно выбрать тип доставки. Проблема с подключением к базе данных.</p>
+					{/if}
 				</div>
 				<div id="no_delivery">
 					Доставка бесплатна!

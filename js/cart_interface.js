@@ -18,6 +18,11 @@ $(function() {
       );
       return false;
    });
+   $('#checkout').click(function(){
+      if ($('#cart table tr').length == 2) {
+         return false;
+      }
+   });
    $('#clear').click(function(){
       $.post(
          '/includes/handlers/handler.Cart.php',
