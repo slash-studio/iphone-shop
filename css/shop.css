@@ -17,6 +17,9 @@
 #shop_menu li ul {
 	border-bottom: 1px #bbb solid;
 }
+#shop_menu a.active {
+	color: #97b428;
+}
 #shop_menu li ul>li>a {
 	border-right: 1px #bbb solid;
 	border-left: 1px #bbb solid;

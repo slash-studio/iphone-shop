@@ -20,7 +20,7 @@ header nav ul li a {
 	padding: 40px 15px;
 }
 header nav ul li a.active {
-	color: red;
+	color: #97b428;
 }
 #search {
 	float: right;
