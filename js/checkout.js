@@ -20,7 +20,7 @@ $(function(){
       }
       $address += $.trim($('#adress').val());
       if ($name == '' || $phone == '' || $email == '' || ($delivery && $address == '')) {
-         alert('Вы некорректно заполнили форму!');
+         $.colorbox({html:"<div style='border: 1px black solid; width: 400px; text-align: center; padding: 50px 0;'>Вы некорректно заполнили форму!</div>"});
          return false;
       }
       // alert($name);
@@ -42,8 +42,7 @@ $(function(){
             from_vlad:        $from_vlad
          }, 
          function(data) {
-            alert(data);
-            alert(data.message);
+           $.colorbox({html:"<div style='border: 1px black solid; width: 400px; text-align: center; padding: 50px 0;'>" + data.message + "</div>"});
             if (data.result) {
                location.reload();
             } else {

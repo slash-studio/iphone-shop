@@ -76,7 +76,6 @@ CREATE TABLE IF NOT EXISTS `goods` (
   `price` varchar(30) NOT NULL,
   `category_id` int NOT NULL,
   `keywords` text NOT NULL,
-  `good_view` INT DEFAULT 0,
   PRIMARY KEY (`id`),
   FOREIGN KEY(category_id) REFERENCES category(id) ON DELETE CASCADE
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
