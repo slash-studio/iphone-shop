@@ -10,9 +10,9 @@
          if (($_POST['login'] == ADMIN_LOGIN) && ($_POST['pass'] == ADMIN_PASS)) {
             $_SESSION['admin_login'] = ADMIN_LOGIN;
             $_SESSION['admin_pass'] = ADMIN_PASS;
-            header("Location: /admin/good");
+            @header("Location: /admin/good");
          } else {
-            header("Location: /");
+            @header("Location: /");
          }
       }
    } else {

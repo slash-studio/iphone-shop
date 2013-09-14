@@ -134,7 +134,7 @@
          }
       }
 
-      public function make_tree($isShowTree = true, $isTopMenu = false)
+      public function make_tree($isShowTree = true, $isTopMenu = false, $alias = '')
       {
          try {
             global $db;
@@ -171,7 +171,7 @@
             foreach ($vertex as $v) {
                $buildTree($tree, $v);
             }
-            $buildTree = function($t) use(&$buildTree, $names, $isTopMenu) {
+            $buildTree = function($t) use(&$buildTree, $names, $isTopMenu, $alias) {
                if (!count($t)) {
                   return '';
                }
@@ -179,11 +179,12 @@
                foreach ($t as $k => $sub) {
                	$a_id = 'alias_' . $names[$k]['alias'];
                   $href_str = $isTopMenu ? "/category/" . $names[$k]['alias'] : 'javascript:void(0)';
-                  $new_node = "<li id='category_$k'><a id='$a_id' href='$href_str' class='parent'>" . $names[$k]['name'] . "</a>";
+                  $aliass = $alias == $names[$k]['alias'] ? ' active' : '';
+                  $new_node = "<li id='category_$k'><a id='$a_id' href='$href_str' class='parent$aliass'>" . $names[$k]['name'] . "</a>";
                   $next_node = $buildTree($sub);
                   $new_node .= $next_node;
                   if ($next_node == '') {
-                     $result .= "<li id='category_$k'><a id='$a_id' href='$href_str'>" . $names[$k]['name'] . "</a>";
+                     $result .= "<li id='category_$k'><a id='$a_id' href='$href_str' class='$aliass'>" . $names[$k]['name'] . "</a>";
                   } else {
                      $result .= $new_node;
                   }

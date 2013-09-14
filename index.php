@@ -44,7 +44,7 @@ switch ($request[0]) {
 
       $active = 'catalog';
       $smarty->assign('active', $active)
-             ->assign('category_tree', $category->make_tree(false, true))
+             ->assign('category_tree', $category->make_tree(false, true, $request[1]))
              ->display('shop.tpl');
       break;
 
