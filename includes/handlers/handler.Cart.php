@@ -43,7 +43,7 @@
          // $_POST['delivery'] = true;
          // $_POST['delivery_type_id'] = null;
 
-         $result = Array('result' => true, 'message' => 'Заказ принят!');
+         $result = Array('result' => true, 'message' => 'Вам на e-mail отправлено письмо для подтверждения заказа!');
 
          try {
             if (!Validate::is_Phone($_POST['phone'])) {

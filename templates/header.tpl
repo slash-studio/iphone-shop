@@ -11,4 +11,5 @@
 			<button id="search_button">s</button>
 	    </form>
 	</div>
+	<div id="phone_number">+7 (914) 701-63-20</div>
 </header>
