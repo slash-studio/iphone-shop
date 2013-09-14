@@ -39,3 +39,14 @@ header nav ul li a.active {
 	background: transparent url(/images/search.png) center center no-repeat;
 	border: 0;
 }
+#phone_number {
+	display: block;
+	text-align: right;
+	position: relative;
+	top: -15px;
+	font-size: 15px;
+	padding-right: 30px;
+	height: 17px;
+	padding-top: 3px;
+	background: url(/images/phone.png) center right no-repeat;
+}
