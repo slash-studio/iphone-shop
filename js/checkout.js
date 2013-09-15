@@ -23,12 +23,6 @@ $(function(){
          $.colorbox({html:"<div style='border: 1px black solid; width: 400px; text-align: center; padding: 50px 0;'>Вы некорректно заполнили форму!</div>"});
          return false;
       }
-      // alert($name);
-      // alert($phone);
-      // alert($email);
-      // alert($address);
-      // alert($delivery);
-      // alert($delivery_type_id);
       $.post(
          '/includes/handlers/handler.Cart.php',
          {  
@@ -44,7 +38,7 @@ $(function(){
          function(data) {
            $.colorbox({html:"<div style='border: 1px black solid; width: 400px; text-align: center; padding: 50px 0;'>" + data.message + "</div>"});
             if (data.result) {
-               location.reload();
+               setTimeout("location.href = '/';", 2000);
             } else {
             }
          },

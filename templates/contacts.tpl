@@ -5,6 +5,6 @@
 {block name='div.main'}
 	<div id="contacts">
 		<a href="mailto:info@sevnlaers.com" class="mail">info@sevnlaers.com</a>
-		<span class="phone">+7 (914) 701-47-05</span>
+		<span class="phone">{$phone_number}</span>
 	</div>
 {/block}

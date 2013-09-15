@@ -85,6 +85,7 @@
 
       public function Confirm($cart_num)
       {
+
          $mail = new Mail();
          $order_db = OrderDB::find_by_id($cart_num);
          if (!$order_db->isExist) return false;

@@ -12,6 +12,6 @@
 		</div>
 	</div>
 	<footer>
-		©2013 iGleb, Vladivostok
+		©2013 Apple tree, Vladivostok
 	</footer>
 {/block}

@@ -9,4 +9,6 @@
    define('SUBJECT_ORDER_ADMIN', 'Новый заказ на iGleb!!!!');
    define('FROM_EMAIL_ORDER_ADMIN', 'director@igleb.com');
    define('FROM_NAME_ORDER_ADMIN', 'director@igleb.com');
+   //site content constants
+   define('PHONE_NUMBER', '+7 (914) 701-47-05');
 ?>
