@@ -73,9 +73,8 @@ class Search
          }
          $sql = $sql." t.name LIKE ? OR t.description LIKE ? OR t.keywords LIKE ?".($i==count($words)?"":" OR");
       }
-      // print_r(Good::get_all_with_where($sql, ' ORDER BY t.good_view DESC', $params));
 
-      return Good::get_all_with_where($sql, ' ORDER BY t.good_view DESC', $params);
+      return Good::get_all_with_where($sql, '', $params);
    }
 
    public function get_matches($content, $word = array())
